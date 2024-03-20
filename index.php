@@ -7,32 +7,62 @@ switch ($action) {
     case 'index':
         require_once 'Controllers/AdminController.php';
         $adminController = new AdminController();
-        $adminController->index();
+        $adminController->indexManager();
         break;
-    case 'add':
+    case 'add_manager':
         require_once 'Controllers/AdminController.php';
         $adminController = new AdminController();
-        $adminController->add();
+        $adminController->add_manager();
         break;
-    case 'insert':
+    case 'insert_manaer':
         require_once 'Controllers/AdminController.php';
         $adminController = new AdminController();
-        $adminController->insert();
+        $adminController->insert_manager();
         break;
-    case 'edit':
+    case 'edit_manager':
         require_once 'Controllers/AdminController.php';
         $adminController = new AdminController();
-        $adminController->edit($_GET['id']);
+        $adminController->edit_manager($_GET['id']);
         break;
-    case 'update':
+    case 'update_manager':
         require_once 'Controllers/AdminController.php';
         $adminController = new AdminController();
-        $adminController->update($_GET['id']);
+        $adminController->update_manager($_GET['id']);
         break;
-    case 'delete':
+    case 'delete_manager':
         require_once 'Controllers/AdminController.php';
         $adminController = new AdminController();
-        $adminController->delete($_GET['id']);
+        $adminController->delete_manager($_GET['id']);
+        break;
+        case 'student':
+            require_once 'Controllers/AdminController.php';
+            $adminController = new AdminController();
+            $adminController->indexStudent();
+            break;    
+    case 'add_student':
+        require_once 'Controllers/AdminController.php';
+        $adminController = new AdminController();
+        $adminController->add_student();
+        break;
+    case 'insert_student':
+        require_once 'Controllers/AdminController.php';
+        $adminController = new AdminController();
+        $adminController->insert_student();
+        break;
+    case 'edit_student':
+        require_once 'Controllers/AdminController.php';
+        $adminController = new AdminController();
+        $adminController->edit_student($_GET['id']);
+        break;
+    case 'update_student':
+        require_once 'Controllers/AdminController.php';
+        $adminController = new AdminController();
+        $adminController->update_student($_GET['id']);
+        break;
+    case 'delete_student':
+        require_once 'Controllers/AdminController.php';
+        $adminController = new AdminController();
+        $adminController->delete_student($_GET['id']);
         break;
     default:
         echo 'Error: Unknown action';

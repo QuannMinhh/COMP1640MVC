@@ -36,19 +36,22 @@
         <tbody>
             <?php foreach ($admin as $admin): ?>
                 <tr>
-                    <td><?php echo $admin['Ad_ID']; ?></td>
-                    <td><?php echo $admin['Ad_Username']; ?></td>
-                    <td><?php echo $admin['Ad_Email']; ?></td>
-                    <td><?php echo $admin['Ad_DOB']; ?></td>
+                    <td><?php echo $admin['Ma_ID']; ?></td>
+                    <td><?php echo $admin['Ma_Username']; ?></td>
+                    <td><?php echo $admin['Ma_Email']; ?></td>
+                    <td><?php echo $admin['Ma_DOB']; ?></td>
                     <td>
-                        <a href="index.php?action=edit&id=<?php echo $admin['Ad_ID']; ?>">Chỉnh sửa</a> | 
-                        <a href="index.php?action=delete&id=<?php echo $admin['Ad_ID']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa tài khoản này không?')">Xóa</a>
+                        <a href="index.php?action=edit_manager&id=<?php echo $admin['Ma_ID']; ?>">Chỉnh sửa</a> | 
+                        <a href="index.php?action=delete_manager&id=<?php echo $admin['Ma_ID']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa tài khoản này không?')">Xóa</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
+    
     <br>
-    <a href="index.php?action=add">Thêm mới tài khoản admin</a>
+    <a href="index.php?action=add_manager">Add new manager</a>
+    <a href="index.php?action=add_student">Add new student</a>
+    <a href="index.php?action=add_coordinator">Add new coordinator</a>
 </body>
 </html>

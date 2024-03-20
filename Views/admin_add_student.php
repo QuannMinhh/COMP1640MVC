@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit admin Account</title>
+    <title>Add Manager Account</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -54,29 +54,33 @@
 </head>
 <body>
     <div class="container">
-        <h2>Edit admin Account</h2>
-        <form action="index.php?action=update&id=<?php echo $admin['Ad_ID']; ?>" method="POST">
+        <h2>Add Student Account</h2>
+        <form action="index.php?action=insert" method="POST">
             <div class="form-group">
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" value="<?php echo $admin['Ad_Username']; ?>" required>
+                <input type="text" id="username" name="username" required>
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" value="<?php echo $admin['Ad_Password']; ?>" required>
+                <input type="password" id="password" name="password" required>
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" value="<?php echo $admin['Ad_Email']; ?>" required>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Fullname:</label>
+                <input type="text" id="fullname" name="fullname" required>
             </div>
             <div class="form-group">
                 <label for="dob">Date of Birth:</label>
-                <input type="date" id="dob" name="dob" value="<?php echo $admin['Ad_DOB']; ?>" required>
+                <input type="date" id="dob" name="dob" required>
             </div>
             <div class="form-group">
-                <label for="role_id">Role ID:</label>
-                <input type="number" id="role_id" name="role_id" value="<?php echo $admin['Role_ID']; ?>" required>
+                <label for="role_id">Faculty ID:</label>
+                <input type="number" id="faculty_id" name="faculty_id" required>
             </div>
-            <input type="submit" value="Save Changes">
+            <input type="submit" value="Add Account">
         </form>
     </div>
 </body>
