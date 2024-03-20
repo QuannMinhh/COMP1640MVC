@@ -99,7 +99,7 @@ class AdminController {
     public function edit_student($id) {
         // Hiển thị form chỉnh sửa Manager
         $adminModel = new AdminModel();
-        $admin = $adminModel->getManagerAccountById($id);
+        $admin = $adminModel->getStudentAccountById($id);
         include 'views/admin_edit_student.php';
     }
 

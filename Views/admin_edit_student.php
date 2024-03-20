@@ -66,7 +66,7 @@
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="eStuil" name="eStuil" value="<?php echo $admin['Stu_Email']; ?>" required>
+                <input type="email" id="email" name="email" value="<?php echo $admin['Stu_Email']; ?>" required>
             </div>
             <div class="form-group">
                 <label for="email">Fullname:</label>
