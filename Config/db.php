@@ -1,14 +1,14 @@
 <?php
-$host = 'localhost';
-$dbname = 'comp1640';
-$username = 'root';
-$password = '';
+$servername = "localhost";
+$username = "root";
+$password = "";
 
 try {
-    $db = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "DB connection successfully";
-} catch (PDOException $e) {
-    echo "Error: " . $e->getMessage();
+  $conn = new PDO("mysql:host=$servername;dbname=comp1640;" ,$username, $password);
+  // set the PDO error mode to exception
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
+ // echo "Connected successfully";
+} catch(PDOException $e) {
+  $e->getMessage();
 }
 ?>
