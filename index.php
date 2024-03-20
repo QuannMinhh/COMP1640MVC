@@ -69,6 +69,33 @@ switch ($action) {
         $adminController = new AdminController();
         $adminController->delete_student($_GET['id']);
         break;
+    
+
+    case 'coordinator':
+        require_once 'Controllers/AdminController.php';
+        $adminController = new AdminController();
+        $adminController->indexCoordinator();
+        break;  
+    case 'insert_coordinator':
+        require_once 'Controllers/AdminController.php';
+        $adminController = new AdminController();
+        $adminController->insert_coordinator();
+        break;
+        // case 'edit_student':
+        //     require_once 'Controllers/AdminController.php';
+        //     $adminController = new AdminController();
+        //     $adminController->edit_student($_POST['id']);
+        //     break;
+    case 'update_coordinator':
+        require_once 'Controllers/AdminController.php';
+        $adminController = new AdminController();
+        $adminController->update_coordinator($_GET['id']);
+        break;
+    case 'delete_coordinator':
+        require_once 'Controllers/AdminController.php';
+        $adminController = new AdminController();
+        $adminController->delete_coordinator($_GET['id']);
+        break;
     default:
         echo 'Error: Unknown action';
         break;

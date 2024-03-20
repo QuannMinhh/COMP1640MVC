@@ -15,6 +15,13 @@ class AdminController {
         include 'views/admin_list_student.php';
     }
 
+    public function indexCoordinator() {
+        // Hiển thị danh sách Manager
+        $adminModel = new adminModel();
+        $admin = $adminModel->getAllCoordinatorAccount();
+        include 'views/admin_list_coordinator.php';
+    }
+
     // public function add_manager() {
     //     // Hiển thị form thêm mới Manager và truyền danh sách vai trò
     //     include 'views/admin_add_manager.php'; 
@@ -137,6 +144,69 @@ class AdminController {
         // Xử lý xóa Manager
         $adminModel = new AdminModel();
         $adminModel->deleteStudentAccount($id);
+
+        // Chuyển hướng sau khi xóa thành công
+        header('Location: index.php?action=student');
+        exit();
+    }
+
+    public function insert_coordinator() {
+        include 'views/admin_add_coordinator.php'; 
+        // Xử lý thêm mới Manager
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            $email = $_POST['email'];
+            $fullname = $_POST['fullname'];
+            $dob = $_POST['dob'];
+            $role_Id = $_POST['role_id'];
+            $fa_id = $_POST['fa_id'];
+            $adminModel = new adminModel();
+            $adminModel->addCoordinatorAccount($username, $password, $email, $fullname, $dob, $role_Id, $fa_id);
+
+            // Chuyển hướng sau khi thêm thành công
+            header('Location: index.php?action=coordinator');
+            exit();
+        }
+    }
+
+    // public function edit_student($id) {
+    //     // Hiển thị form chỉnh sửa Manager
+    //     $adminModel = new AdminModel();
+    //     $admin = $adminModel->getStudentAccountById($id);
+    //     include 'views/admin_edit_student.php';
+    // }
+
+    public function update_coordinator($id) {
+        
+        $adminModel = new AdminModel();
+        $admin = $adminModel->getCoordinatorAccountById($id);
+        
+        include 'views/admin_edit_coordinator.php';
+        
+        // Xử lý cập nhật Manager
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            $email = $_POST['email'];
+            $fullname = $_POST['fullname'];
+            $dob = $_POST['dob'];
+            $roleId = $_POST['role_id'];
+            $fa_id = $_POST['fa_id'];
+
+            $adminModel = new AdminModel();
+            $adminModel->updateCoordinatorAccount($id, $username, $password, $email, $fullname, $dob, $roleId, $fa_id);
+
+            // Chuyển hướng sau khi cập nhật thành công
+            header('Location: index.php?action=coordinator');
+            exit();
+        }
+    }
+
+    public function delete_coordinator($id) {
+        // Xử lý xóa Manager
+        $adminModel = new AdminModel();
+        $adminModel->deleteCoordinatorAccount($id);
 
         // Chuyển hướng sau khi xóa thành công
         header('Location: index.php');
