@@ -6,9 +6,89 @@
     <title>Admin Page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="admin.css">
 </head>
-    <style>
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+    * {
+        margin: 0;
+        padding: 0;
+        border: none;
+        outline: none;
+        box-sizing: border-box;
+        font-family: Poppins, sans-serif;
+    }
+
+    body {
+        display: flex;
+    }
+
+    .sidebar {
+        position: sticky;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 115px;
+        height: 100vh;
+        padding: 0 1.7rem;
+        color: #fff;
+        overflow: hidden;
+        transition: all 0.5s linear;
+        background: rgba(113, 99, 186, 255);
+    }
+
+    .sidebar:hover {
+        width: 240px;
+        transition: 0.5s;
+    }
+
+    .logo {
+        height: 80px;
+        padding: 16px;
+    }
+
+    .menu {
+        height: 88%;
+        position: relative;
+        list-style: none;
+        padding: 0;
+    }
+
+    .menu li {
+        padding: 1rem;
+        margin: 8px 0;
+        border-radius: 10px;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .menu li:hover, .active {
+        background: #e0e0e058;
+    }
+
+    .menu a {
+        color: #fff;
+        font-size: 15px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .menu a span {
+        overflow: hidden;
+    }
+
+    .menu a i {
+        font-size: 1.2rem;
+    }
+
+    .logout {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+
     .main--content {
         position: relative;
         background: #ebe9e9;
@@ -170,7 +250,7 @@
         border-radius: 10px;
         padding: 2rem;
     }
-    </style>
+</style>
 <body>
     <div class="sidebar">
         <div class="logo"></div>
@@ -219,85 +299,7 @@
             </li>
         </ul>
     </div>
-    <div class="main--content">
-        <div class="header--wrapper">
-            <div class="header--title">
-                <span style="font-weight: bold">University Of Greenwich</span>
-                <h1>ADMIN PAGE</h1>
-            </div>
-            <div class="user--info">
-                <div class="search--box">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Search">
-                </div>
-                <img src="../image/image.png" alt="">
-            </div>
-        </div>
-
-        <div class="card--container">
-            <h3 class="main--title">Today's data</h3>
-            <div class="card--wrapper">
-                <div class="payment--card light-red">
-                    <div class="card--header">
-                        <div class="amount">
-                            <span class="title">Total users</span>
-                            <span class="amount--value">500</span>
-                        </div>
-                        <i class="fa-regular fa-user dark-red"></i>
-                    </div>
-                    <span class="card-detail">**** **** **** ***</span>
-                </div>
-                <div class="payment--card light-blue">
-                    <div class="card--header">
-                        <div class="amount">
-                            <span class="title">Total contributions</span>
-                            <span class="amount--value">500</span>
-                        </div>
-                        <i class="fa-regular fa-bookmark dark-blue"></i>
-                    </div>
-                    <span class="card-detail">**** **** **** ***</span>
-                </div>
-                <div class="payment--card light-green">
-                    <div class="card--header">
-                        <div class="amount">
-                            <span class="title">Total comments</span>
-                            <span class="amount--value">500</span>
-                        </div>
-                        <i class="fa-regular fa-comments"></i>
-                    </div>
-                    <span class="card-detail">**** **** **** ***</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="tabular--wrapper">
-            <h3 class="main--title">User Accounts</h3>
-            <table class="table table-bordered">
-                <thead class="thead-light">
-                    <tr>
-                    <th>User Name</th>
-                    <th>Email</th>
-                    <th>Role</th>
-                    <th>Faculty ID</th>
-                    <th style="text-align: center;" scope="col" colspan="3">Actions</th>                    
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <td>Admin</td>
-                    <td>admin@gmail.com</td>
-                    <td>Admin</td>
-                    <td>1</td>
-                    <td><button type="button" class="btn btn-primary">Detail</button></td>
-                    <td><button type="button" class="btn btn-success">Edit</button></td>
-                    <td><button type="button" class="btn btn-danger">Delete</button></td>
-                    </tr>
-                    
-                </tbody>
-                </table>
-        </div>
-
-    </div>
+    
 
 
 
