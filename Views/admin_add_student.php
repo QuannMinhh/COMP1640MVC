@@ -55,7 +55,7 @@
 <body>
     <div class="container">
         <h2>Add Student Account</h2>
-        <form action="index.php?action=insert" method="POST">
+        <form action="index.php?action=insert_student" method="POST">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
@@ -77,8 +77,12 @@
                 <input type="date" id="dob" name="dob" required>
             </div>
             <div class="form-group">
+                <label for="dob">Role:</label>
+                <input type="text" id="role_id"  name="role_id" required>
+            </div>
+            <div class="form-group">
                 <label for="role_id">Faculty ID:</label>
-                <input type="number" id="faculty_id" name="faculty_id" required>
+                <input type="number" id="fa_id" name="fa_id" required>
             </div>
             <input type="submit" value="Add Account">
         </form>

@@ -51,11 +51,13 @@ class AdminController {
             $username = $_POST['username'];
             $password = $_POST['password'];
             $email = $_POST['email'];
+            $fullname = $_POST['fullname'];
             $dob = $_POST['dob'];
             $roleId = $_POST['role_id'];
+            $fa_id = $_POST['fa_id'];
 
             $adminModel = new AdminModel();
-            $adminModel->updateManagerAccount($id, $username, $password, $email, $dob, $roleId);
+            $adminModel->updateStudentAccount($id, $username, $password, $email, $fullname, $dob, $roleId, $fa_id);
 
             // Chuyển hướng sau khi cập nhật thành công
             header('Location: index.php');
@@ -85,10 +87,10 @@ class AdminController {
             $email = $_POST['email'];
             $fullname = $_POST['fullname'];
             $dob = $_POST['dob'];
-            $roleId = $_POST['role_id'];
+            $role_Id = $_POST['role_id'];
             $fa_id = $_POST['fa_id'];
             $adminModel = new adminModel();
-            $adminModel->addStudentAccount($username, $password, $email, $fullname, $dob, $roleId, $fa_id);
+            $adminModel->addStudentAccount($username, $password, $email, $fullname, $dob, $role_Id, $fa_id);
 
             // Chuyển hướng sau khi thêm thành công
             header('Location: index.php');

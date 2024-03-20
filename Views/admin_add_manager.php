@@ -55,7 +55,7 @@
 <body>
     <div class="container">
         <h2>Add Manager Account</h2>
-        <form action="index.php?action=insert" method="POST">
+        <form action="index.php?action=insert_manager" method="POST">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>

@@ -61,7 +61,8 @@ class AdminModel {
     }
 
     public function addStudentAccount($username, $password, $email, $fullname, $dob, $roleId, $fa_id) {
-        $query = "INSERT INTO Student (Stu_Username, Stu_Password, Stu_Email, Stu_DOB, Role_ID, Fa_ID) VALUES (:username, :password, :email, :fullname, :dob, :role_id, :fa_id)";
+        $query = "INSERT INTO Student (Stu_Username, Stu_Password, Stu_Email, Stu_FullName, Stu_DOB, Role_ID, Fa_ID) VALUES (:username, :password, :email, :fullname, :dob, :role_id, :fa_id)";
+
         $sql = $this->conn->prepare($query);
         $sql->execute(array(':username' => $username, ':password' => $password, ':email' => $email, ':fullname' => $fullname, ':dob' => $dob, ':role_id' => $roleId, ':fa_id' => $fa_id));
     }
