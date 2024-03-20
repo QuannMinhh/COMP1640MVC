@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Manager Account</title>
+    <title>Edit admin Account</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -54,27 +54,27 @@
 </head>
 <body>
     <div class="container">
-        <h2>Edit Manager Account</h2>
-        <form action="index.php?action=update&id=<?php echo $manager['Ma_ID']; ?>" method="POST">
+        <h2>Edit admin Account</h2>
+        <form action="index.php?action=update&id=<?php echo $admin['Ad_ID']; ?>" method="POST">
             <div class="form-group">
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" value="<?php echo $manager['Ma_Username']; ?>" required>
+                <input type="text" id="username" name="username" value="<?php echo $admin['Ad_Username']; ?>" required>
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" value="<?php echo $manager['Ma_Password']; ?>" required>
+                <input type="password" id="password" name="password" value="<?php echo $admin['Ad_Password']; ?>" required>
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" value="<?php echo $manager['Ma_Email']; ?>" required>
+                <input type="email" id="email" name="email" value="<?php echo $admin['Ad_Email']; ?>" required>
             </div>
             <div class="form-group">
                 <label for="dob">Date of Birth:</label>
-                <input type="date" id="dob" name="dob" value="<?php echo $manager['Ma_DOB']; ?>" required>
+                <input type="date" id="dob" name="dob" value="<?php echo $admin['Ad_DOB']; ?>" required>
             </div>
             <div class="form-group">
                 <label for="role_id">Role ID:</label>
-                <input type="number" id="role_id" name="role_id" value="<?php echo $manager['Role_ID']; ?>" required>
+                <input type="number" id="role_id" name="role_id" value="<?php echo $admin['Role_ID']; ?>" required>
             </div>
             <input type="submit" value="Save Changes">
         </form>

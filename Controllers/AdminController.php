@@ -1,17 +1,17 @@
 <?php
-require_once 'Models/ManagerModel.php';
+require_once 'Models/adminModel.php';
 
-class ManagerController {
+class AdminController {
     public function index() {
         // Hiển thị danh sách Manager
-        $managerModel = new ManagerModel();
-        $managers = $managerModel->getAllManagers();
-        include 'views/manager_list.php';
+        $adminModel = new adminModel();
+        $admin = $adminModel->getAllAccount();
+        include 'views/admin_list.php';
     }
 
     public function add() {
         // Hiển thị form thêm mới Manager
-        include 'views/manager_add.php';
+        include 'views/admin_add.php';
     }
 
     public function insert() {
@@ -23,8 +23,8 @@ class ManagerController {
             $dob = $_POST['dob'];
             $roleId = $_POST['role_id'];
 
-            $managerModel = new ManagerModel();
-            $managerModel->addManager($username, $password, $email, $dob, $roleId);
+            $adminModel = new adminModel();
+            $adminModel->addAccount($username, $password, $email, $dob, $roleId);
 
             // Chuyển hướng sau khi thêm thành công
             header('Location: index.php');
@@ -34,9 +34,9 @@ class ManagerController {
 
     public function edit($id) {
         // Hiển thị form chỉnh sửa Manager
-        $managerModel = new ManagerModel();
-        $manager = $managerModel->getManagerById($id);
-        include 'views/manager_edit.php';
+        $adminModel = new AdminModel();
+        $admin = $adminModel->getAccountById($id);
+        include 'views/admin_edit.php';
     }
 
     public function update($id) {
@@ -48,8 +48,8 @@ class ManagerController {
             $dob = $_POST['dob'];
             $roleId = $_POST['role_id'];
 
-            $managerModel = new ManagerModel();
-            $managerModel->updateManager($id, $username, $password, $email, $dob, $roleId);
+            $adminModel = new AdminModel();
+            $adminModel->updateAccount($id, $username, $password, $email, $dob, $roleId);
 
             // Chuyển hướng sau khi cập nhật thành công
             header('Location: index.php');
@@ -59,8 +59,8 @@ class ManagerController {
 
     public function delete($id) {
         // Xử lý xóa Manager
-        $managerModel = new ManagerModel();
-        $managerModel->deleteManager($id);
+        $adminModel = new AdminModel();
+        $adminModel->deleteAccount($id);
 
         // Chuyển hướng sau khi xóa thành công
         header('Location: index.php');
