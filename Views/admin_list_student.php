@@ -45,7 +45,8 @@
                     <td><?php echo $admin['Stu_DOB']; ?></td>
                     <td><?php echo $admin['Fa_ID']; ?></td>
                     <td>
-                        <a href="index.php?action=edit_student&id=<?php echo $admin['Stu_ID']; ?>">Chỉnh sửa</a> | 
+                        <a href="index.php?action=update_student&id=<?php echo $admin['Stu_ID']; ?>">Chỉnh sửa</a> | 
+                      
                         <a href="index.php?action=delete_student&id=<?php echo $admin['Stu_ID']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa tài khoản này không?')">Xóa</a>
                     </td>
                 </tr>
@@ -54,8 +55,8 @@
     </table>
     
     <br>
-    <a href="index.php?action=add_Stunager">Add new Stunager</a>
-    <a href="index.php?action=add_student">Add new student</a>
-    <a href="index.php?action=add_coordinator">Add new coordinator</a>
+    <a href="index.php?action=insert_manager">Add new manager</a>
+    <a href="index.php?action=insert_student">Add new student</a>
+    <a href="index.php?action=insert_coordinator">Add new coordinator</a>
 </body>
 </html>

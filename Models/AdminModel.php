@@ -68,10 +68,13 @@ class AdminModel {
     }
 
     public function updateStudentAccount($id, $username, $password, $email, $fullname, $dob, $roleId, $fa_id) {
-        $query = "UPDATE Student SET Stu_Username = :username, Stu_Password = :password, Stu_Email = :email, Stu_Fullname = :fullname, Stu_DOB = :dob, Role_ID = :role_id, Fa_ID = :fa_id WHERE Stu_ID = :id";
+        $query = "UPDATE Student SET Stu_Username = :username, Stu_Password = :password, Stu_Email = :email, Stu_FullName = :fullname, Stu_DOB = :dob, Role_ID = :role_id, Fa_ID = :fa_id WHERE Stu_ID = :id";
+    
         $sql = $this->conn->prepare($query);
-        $sql->execute(array(':username' => $username, ':password' => $password, ':email' => $email, ':fullname' => $fullname, ':dob' => $dob, ':role_id' => $roleId, ':role_id' => $fa_id, ':id' => $id));
+        $sql->execute(array(':username' => $username, ':password' => $password, ':email' => $email, ':fullname' => $fullname, ':dob' => $dob, ':role_id' => $roleId, ':fa_id' => $fa_id, ':id' => $id));
     }
+    
+
 
     public function deleteStudentAccount($id) {
         $query = "DELETE FROM Student WHERE Stu_ID = :id";

@@ -15,12 +15,13 @@ class AdminController {
         include 'views/admin_list_student.php';
     }
 
-    public function add_manager() {
-        // Hiển thị form thêm mới Manager và truyền danh sách vai trò
-        include 'views/admin_add_manager.php'; 
-    }
+    // public function add_manager() {
+    //     // Hiển thị form thêm mới Manager và truyền danh sách vai trò
+    //     include 'views/admin_add_manager.php'; 
+    // }
 
     public function insert_manager() {
+        include 'views/admin_add_manager.php'; 
         // Xử lý thêm mới Manager
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $username = $_POST['username'];
@@ -38,29 +39,29 @@ class AdminController {
         }
     }
 
-    public function edit_manager($id) {
-        // Hiển thị form chỉnh sửa Manager
+    // public function edit_manager($id) {
+    //     // Hiển thị form chỉnh sửa Manager
+    //     $adminModel = new AdminModel();
+    //     $admin = $adminModel->getManagerAccountById($id);
+    //     include 'views/admin_edit_manager.php';
+    // }
+
+    public function update_manager($id) {
         $adminModel = new AdminModel();
         $admin = $adminModel->getManagerAccountById($id);
         include 'views/admin_edit_manager.php';
-    }
-
-    public function update_manager($id) {
         // Xử lý cập nhật Manager
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $username = $_POST['username'];
             $password = $_POST['password'];
-            $email = $_POST['email'];
-            $fullname = $_POST['fullname'];
+            $email = $_POST['email'];         
             $dob = $_POST['dob'];
-            $roleId = $_POST['role_id'];
-            $fa_id = $_POST['fa_id'];
-
+            $roleId = $_POST['role_id'];          
             $adminModel = new AdminModel();
-            $adminModel->updateStudentAccount($id, $username, $password, $email, $fullname, $dob, $roleId, $fa_id);
+            $adminModel->updateManagerAccount($id, $username, $password, $email,  $dob, $roleId, );
 
             // Chuyển hướng sau khi cập nhật thành công
-            header('Location: index.php');
+            header('Location: index.php?action=manager');
             exit();
         }
     }
@@ -75,11 +76,12 @@ class AdminController {
         exit();
     }
 
-    public function add_student() {
-        // Hiển thị form thêm mới Manager và truyền danh sách vai trò
-        include 'views/admin_add_student.php'; 
-    }
+    // public function add_student() {
+    //     // Hiển thị form thêm mới Manager và truyền danh sách vai trò
+    //     include 'views/admin_add_student.php'; 
+    // }
     public function insert_student() {
+        include 'views/admin_add_student.php'; 
         // Xử lý thêm mới Manager
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $username = $_POST['username'];
@@ -93,19 +95,25 @@ class AdminController {
             $adminModel->addStudentAccount($username, $password, $email, $fullname, $dob, $role_Id, $fa_id);
 
             // Chuyển hướng sau khi thêm thành công
-            header('Location: index.php');
+            header('Location: index.php?action=student');
             exit();
         }
     }
 
-    public function edit_student($id) {
-        // Hiển thị form chỉnh sửa Manager
-        $adminModel = new AdminModel();
-        $admin = $adminModel->getStudentAccountById($id);
-        include 'views/admin_edit_student.php';
-    }
+    // public function edit_student($id) {
+    //     // Hiển thị form chỉnh sửa Manager
+    //     $adminModel = new AdminModel();
+    //     $admin = $adminModel->getStudentAccountById($id);
+    //     include 'views/admin_edit_student.php';
+    // }
 
     public function update_student($id) {
+        
+        $adminModel = new AdminModel();
+        $admin = $adminModel->getStudentAccountById($id);
+        
+        include 'views/admin_edit_student.php';
+        
         // Xử lý cập nhật Manager
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $username = $_POST['username'];
@@ -120,7 +128,7 @@ class AdminController {
             $adminModel->updateStudentAccount($id, $username, $password, $email, $fullname, $dob, $roleId, $fa_id);
 
             // Chuyển hướng sau khi cập nhật thành công
-            header('Location: index.php');
+            header('Location: index.php?action=student');
             exit();
         }
     }

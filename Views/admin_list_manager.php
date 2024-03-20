@@ -22,7 +22,7 @@
     </style>
 </head>
 <body>
-    <h2>Danh sách tài khoản admin</h2>
+    <h2>Danh sách tài khoản manager</h2>
     <table>
         <thead>
             <tr>
@@ -41,7 +41,7 @@
                     <td><?php echo $admin['Ma_Email']; ?></td>
                     <td><?php echo $admin['Ma_DOB']; ?></td>
                     <td>
-                        <a href="index.php?action=edit_manager&id=<?php echo $admin['Ma_ID']; ?>">Chỉnh sửa</a> | 
+                        <a href="index.php?action=update_manager&id=<?php echo $admin['Ma_ID']; ?>">Chỉnh sửa</a> | 
                         <a href="index.php?action=delete_manager&id=<?php echo $admin['Ma_ID']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa tài khoản này không?')">Xóa</a>
                     </td>
                 </tr>
@@ -50,8 +50,8 @@
     </table>
     
     <br>
-    <a href="index.php?action=add_manager">Add new manager</a>
-    <a href="index.php?action=add_student">Add new student</a>
-    <a href="index.php?action=add_coordinator">Add new coordinator</a>
+    <a href="index.php?action=insert_manager">Add new manager</a>
+    <a href="index.php?action=insert_student">Add new student</a>
+    <a href="index.php?action=insert_coordinator">Add new coordinator</a>
 </body>
 </html>

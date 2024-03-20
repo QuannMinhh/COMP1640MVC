@@ -54,8 +54,8 @@
 </head>
 <body>
     <div class="container">
-        <h2>Edit admin Account</h2>
-        <form action="index.php?action=update&id=<?php echo $admin['Stu_ID']; ?>" method="POST">
+        <h2>Edit student Account</h2>
+        <form action="index.php?action=update_student&id=<?php echo $admin['Stu_ID']; ?>" method="POST">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" value="<?php echo $admin['Stu_Username']; ?>" required>

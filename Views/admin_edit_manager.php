@@ -55,7 +55,7 @@
 <body>
     <div class="container">
         <h2>Edit admin Account</h2>
-        <form action="index.php?action=update&id=<?php echo $admin['Ma_ID']; ?>" method="POST">
+        <form action="index.php?action=update_manager&id=<?php echo $admin['Ma_ID']; ?>" method="POST">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" value="<?php echo $admin['Ma_Username']; ?>" required>
