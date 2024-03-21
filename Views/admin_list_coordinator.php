@@ -3,41 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản lý tài khoản admin</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
+    <title>Manage Coordinator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<style>
+        .main--content {
+        position: relative;
+        background: #ebe9e9;
+        width: 100%;
+        padding: 1rem;
         }
-        table, th, td {
-            border: 1px solid black;
+        .main--content .tabular--wrapper {
+            background: #fff;
+            margin-top: 1rem;
+            border-radius: 10px;
+            padding: 10px 2rem;
         }
-        th, td {
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
+
+        h2 {
+            color: rgba(113, 99, 186, 255);
+            padding-bottom: 10px;
+            font-size: 25px;
+            
         }
     </style>
-</head>
 <body>
-    <h2>Danh sách tài khoản coordinator</h2>
-    <table>
-        <thead>
-            <tr>
+    <?php 
+        include 'Layout/admin_sidebar.php'
+    ?>
+    <div class="main--content">
+        <?php include 'Layout/admin_navbar.php' ?>
+        <div class="tabular--wrapper">
+        <h2>List of coordinator</h2>
+        <button style="margin-bottom: 10px" class="btn btn-primary">
+            <a style="text-decoration: none; color:#fff"
+            href="index.php?action=insert_coordinator">Add new coordinator</a>
+        </button>
+
+        <table class="table table-bordered border-bold">
+        <thead class="thread-dark">
+            <tr class="table-primary table-bordered border-info-bold">
                 <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Fullname</th>
                 <th>DOB</th>
                 <th>Faculty</th>
-                <th>Action</th>
+                <th style="text-align: center;">Action</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($admin as $admin): ?>
-                <tr>
+                <tr class="table-secondary">
                     <td><?php echo $admin['Coor_ID']; ?></td>
                     <td><?php echo $admin['Coor_Username']; ?></td>
                     <td><?php echo $admin['Coor_Email']; ?></td>
@@ -45,18 +63,22 @@
                     <td><?php echo $admin['Coor_DOB']; ?></td>
                     <td><?php echo $admin['Fa_ID']; ?></td>
                     <td>
-                        <a href="index.php?action=update_coordinator&id=<?php echo $admin['Coor_ID']; ?>">Chỉnh sửa</a> | 
-                      
-                        <a href="index.php?action=delete_coordinator&id=<?php echo $admin['Coor_ID']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa tài khoản này không?')">Xóa</a>
+                    <button class="btn btn-success">
+                        <a style="text-decoration: none; color:#fff" 
+                        href="index.php?action=update_coordinator&id=<?php echo $admin['Coor_ID']; ?>">Edit</a> 
+                    </button>
+
+                    <button class="btn btn-danger">
+                        <a style="text-decoration: none; color:#fff"  
+                        href="index.php?action=delete_coordinator&id=<?php echo $admin['Coor_ID']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa tài khoản này không?')">Delete</a>
+                    </button>
                     </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
-    
-    <br>
-    <a href="index.php?action=insert_manager">Add new manager</a>
-    <a href="index.php?action=insert_student">Add new student</a>
-    <a href="index.php?action=insert_coordinator">Add new coordinator</a>
+        </div>
+    </div>
+
 </body>
 </html>

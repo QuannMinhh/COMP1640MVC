@@ -5,9 +5,17 @@ $action = $_GET['action'] ?? 'index';
 
 switch ($action) {
     case 'index':
-        require_once 'Controllers/AdminController.php';
-        $adminController = new AdminController();
-        $adminController->indexManager();
+        if($_SESSION['is_login']== true && $_SESSION['role_id']== 1){
+            header("Location: admin_index.php");
+            exit;
+        }
+        else{
+            header("Location:index.php?action=login ");
+            exit;
+        }
+        // require_once 'Controllers/AdminController.php';
+        // $adminController = new AdminController();
+        // $adminController->indexManager();
         break;
     // case 'add_manager':
     //     require_once 'Controllers/AdminController.php';
@@ -96,6 +104,20 @@ switch ($action) {
         $adminController = new AdminController();
         $adminController->delete_coordinator($_GET['id']);
         break;
+    case 'login':    
+            require_once 'Controllers/UserController.php';
+            $UserController = new UserController();
+            $UserController->login();     
+        break;
+    case 'logout':
+   
+            require_once 'Controllers/UserController.php';
+        
+            $UserController = new UserController();
+           
+            $UserController->logout();
+       
+            break;
     default:
         echo 'Error: Unknown action';
         break;

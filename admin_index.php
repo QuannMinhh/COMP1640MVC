@@ -3,13 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Page</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="admin.css">
+    <title>Admin Homepage</title>
 </head>
     <style>
-    .main--content {
+        .main--content {
         position: relative;
         background: #ebe9e9;
         width: 100%;
@@ -69,6 +66,7 @@
         background: #fff;
         padding: 2rem;
         border-radius: 10px;
+        margin-top: 10px;
     }
 
     .card--wrapper {
@@ -164,76 +162,32 @@
     .dark-blue {
         background: blue;
     }
-    .tabular--wrapper {
-        background: #fff;
-        margin-top: 1rem;
-        border-radius: 10px;
-        padding: 2rem;
-    }
+        .main--content {
+        position: relative;
+        background: #ebe9e9;
+        width: 100%;
+        padding: 1rem;
+        }
+        .main--content .tabular--wrapper {
+            background: #fff;
+            margin-top: 20px;
+            border-radius: 10px;
+            padding: 10px 2rem;
+        }
+
+        h2 {
+            color: rgba(113, 99, 186, 255);
+            padding-bottom: 10px;
+            font-size: 25px;
+            
+        }
     </style>
 <body>
-    <div class="sidebar">
-        <div class="logo"></div>
-        <ul class="menu">
-            <li class="active">
-                <a href="#">
-                    <i class="fa-solid fa-house"></i>
-                    <span>Home</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa-solid fa-user"></i>
-                    <span>Profile</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa-solid fa-chart-column"></i>
-                    <span>Statistics</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa-solid fa-circle-question"></i>
-                    <span>FAQ</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa-solid fa-gear"></i>
-                    <span>Settings</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa-solid fa-users"></i>
-                    <span>Account</span>
-                </a>
-            </li>
-            <li class="logout">
-                <a href="#">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                    <span>Log Out</span>
-                </a>
-            </li>
-        </ul>
-    </div>
+    <?php 
+        include 'views/Layout/admin_sidebar.php'
+    ?>
     <div class="main--content">
-        <div class="header--wrapper">
-            <div class="header--title">
-                <span style="font-weight: bold">University Of Greenwich</span>
-                <h1>ADMIN PAGE</h1>
-            </div>
-            <div class="user--info">
-                <div class="search--box">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Search">
-                </div>
-                <img src="../image/image.png" alt="">
-            </div>
-        </div>
-
+        <?php include 'views/Layout/admin_navbar.php' ?>
         <div class="card--container">
             <h3 class="main--title">Today's data</h3>
             <div class="card--wrapper">
@@ -269,42 +223,10 @@
                 </div>
             </div>
         </div>
-
         <div class="tabular--wrapper">
-            <h3 class="main--title">User Accounts</h3>
-            <table class="table table-bordered">
-                <thead class="thead-light">
-                    <tr>
-                    <th>User Name</th>
-                    <th>Email</th>
-                    <th>Role</th>
-                    <th>Faculty ID</th>
-                    <th style="text-align: center;" scope="col" colspan="3">Actions</th>                    
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <td>Admin</td>
-                    <td>admin@gmail.com</td>
-                    <td>Admin</td>
-                    <td>1</td>
-                    <td><button type="button" class="btn btn-primary">Detail</button></td>
-                    <td><button type="button" class="btn btn-success">Edit</button></td>
-                    <td><button type="button" class="btn btn-danger">Delete</button></td>
-                    </tr>
-                    
-                </tbody>
-                </table>
+            <img style="margin-left: 350px;"
+            src="https://i.pinimg.com/originals/8d/d3/ed/8dd3ed839851364b5653440ee4a6a5a9.gif" alt="" width="350" height="350">
         </div>
-
     </div>
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
 </body>
-    
 </html>
