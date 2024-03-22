@@ -49,7 +49,7 @@ class AdminController {
     // public function add_manager() {
     //     // Hiển thị form thêm mới Manager và truyền danh sách vai trò
     //     include 'views/admin_add_manager.php'; 
-    // }
+    // }    
 
     public function insert_manager() {
         ob_start();
@@ -61,8 +61,7 @@ class AdminController {
                    $password = $_POST['password'];
                    $email = $_POST['email'];
                    $dob = $_POST['dob'];
-                   $roleId = $_POST['role_id'];
-       
+                   $roleId = $_POST['role_id'];     
                    $adminModel = new adminModel();
                    $adminModel->addManagerAccount($username, $password, $email, $dob, $roleId);
        
@@ -132,6 +131,12 @@ class AdminController {
             include 'views/admin_add_student.php'; 
              # Xử lý thêm mới student
               if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // $targetDirectory = "Image/";
+                // $targetFile = $targetDirectory . basename($_FILES["avatar"]["name"]);
+                $file = $_FILES["avatar"];
+                // move_uploaded_file($_FILES["avatar"]["tmp_name"], $targetFile);
+                $imageData = file_get_contents($file["tmp_name"]);
+               
                   $username = $_POST['username'];
                   $password = $_POST['password'];
                   $email = $_POST['email'];
@@ -140,7 +145,7 @@ class AdminController {
                   $role_Id = $_POST['role_id'];
                   $fa_id = $_POST['fa_id'];
                   $adminModel = new adminModel();
-                  $adminModel->addStudentAccount($username, $password, $email, $fullname, $dob, $role_Id, $fa_id);
+                  $adminModel->addStudentAccount($username, $password, $email, $fullname, $dob, $role_Id, $fa_id,$imageData);
       
                   // Chuyển hướng sau khi thêm thành công
                   header('Location: index.php?action=student');

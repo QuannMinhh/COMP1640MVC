@@ -36,7 +36,7 @@
         <?php include 'Layout/admin_navbar.php' ?>
         <div class="tabular--wrapper">
             <h2>Add Student Account</h2>
-            <form  method="POST">
+            <form  method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="username">Username:</label>
                     <input type="text" class="form-control" id="username" name="username" required>
@@ -73,6 +73,10 @@
                            
                         ?>
                     </select>
+                </div>
+                <div class="form-group">
+                <label for="avatar">Avatar:</label>
+            <input type="file" id="avatar" name="avatar" accept="image/*" >
                 </div>
                 <button type="submit" class="btn btn-success">Add Account</button>
             </form>
