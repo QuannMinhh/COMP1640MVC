@@ -4,10 +4,11 @@ require_once 'Models/UserModel.php';
 class UserController{
     public function login(){
         ob_start();
-        
+     
         $_SESSION['is_login'] = false;
         if(  isset($_SESSION['is_login'] ) && $_SESSION['is_login'] == false){
-       header('location:views/userlogin.php');     
+           
+       header('location: views/userlogin.php');
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $username = $_POST['username'];
             $password = $_POST['password'];
@@ -31,6 +32,7 @@ class UserController{
         }
         else{
             $_SESSION['is_login'] = false;
+            
             header('Location: index.php?action=login');           
             exit();
         }
@@ -42,6 +44,9 @@ class UserController{
 
 ob_end_flush();
     }
+    public function display_role(){
+
+    }
     public function is_login() {
         if( $_SESSION['is_login'] == false ){
            return false;
@@ -51,8 +56,7 @@ ob_end_flush();
         }
     }
 
-    public function logout(){
-       
+    public function logout(){      
         session_unset();
         session_destroy();
         $_SESSION['is_login'] = false;

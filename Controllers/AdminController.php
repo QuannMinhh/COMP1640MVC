@@ -14,6 +14,7 @@ class AdminController {
          $adminModel = new adminModel();
          $admin = $adminModel->getAllManagerAccount();
          include 'views/admin_list_manager.php';
+      
          } else if($this->is_login == true && $_SESSION['role_id'] != 1){
             echo'access dinied';
          }
