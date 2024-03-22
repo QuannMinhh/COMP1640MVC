@@ -25,7 +25,10 @@
             color: rgba(113, 99, 186, 255);
             padding-bottom: 10px;
             font-size: 25px;
-            
+        }
+        label {
+            color: #4B0082;
+            font-weight: 600; 
         }
     </style>
 <body>

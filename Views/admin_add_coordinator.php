@@ -27,6 +27,10 @@
             font-size: 25px;
             
         }
+        label {
+            color: #4B0082;
+            font-weight: 600; 
+        }
 </style>
 <body>
     <?php 
@@ -38,23 +42,23 @@
             <h2>Add coordinator Account</h2>
             <form  method="POST">
                 <div class="form-group">
-                    <label for="username">Username:</label>
+                    <label for="username">Username</label>
                     <input type="text" class="form-control" id="username" name="username" required>
                 </div>
                 <div class="form-group">
-                    <label for="password">Password:</label>
+                    <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" name="password" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email:</label>
+                    <label for="email">Email</label>
                     <input type="email" class="form-control" id="email" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Fullname:</label>
+                    <label for="email">Fullname</label>
                     <input type="text" class="form-control" id="fullname" name="fullname" required>
                 </div>
                 <div class="form-group">
-                    <label for="dob">Date of Birth:</label>
+                    <label for="dob">Date of Birth</label>
                     <input type="date" class="form-control" id="dob" name="dob" required>
                 </div>
                 <div class="form-group">
