@@ -39,28 +39,27 @@
             <h2>Edit student Account</h2>
             <form action="index.php?action=update_student&id=<?php echo $admin['Stu_ID']; ?>" method="POST">
                 <div class="form-group">
-                    <label for="username">Username:</label>
+                    <label for="username">Username</label>
                     <input type="text" class="form-control" id="username" name="username" value="<?php echo $admin['Stu_Username']; ?>" required>
                 </div>
                 <div class="form-group">
-                    <label for="password">Password:</label>
+                    <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" name="password" value="<?php echo $admin['Stu_Password']; ?>" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email:</label>
+                    <label for="email">Email</label>
                     <input type="email" class="form-control" id="email" name="email" value="<?php echo $admin['Stu_Email']; ?>" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Fullname:</label>
+                    <label for="email">Fullname</label>
                     <input type="text" class="form-control" id="fullname" name="fullname" value="<?php echo $admin['Stu_FullName']; ?>" required>
                 </div>
                 <div class="form-group">
-                    <label for="dob">Date of Birth:</label>
+                    <label for="dob">Date of Birth</label>
                     <input type="date" class="form-control" id="dob" name="dob" value="<?php echo $admin['Stu_DOB']; ?>" required>
                 </div>
                 <div class="form-group">
-                    <label for="role_id">Role ID:</label>
-                    <input type="number" class="form-control" id="role_id" name="role_id" value="<?php echo $admin['Role_ID']; ?>" required>
+                    <input type="hidden" class="form-control" id="role_id" name="role_id" value="<?php echo $admin['Role_ID']; ?>" required>
                 </div>
                 <div class="form-group">
                     <label for="role_id">Faculty:</label>

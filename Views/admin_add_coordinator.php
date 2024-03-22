@@ -58,12 +58,19 @@
                     <input type="date" class="form-control" id="dob" name="dob" required>
                 </div>
                 <div class="form-group">
-                    <label for="dob">Role:</label>
-                    <input type="text" class="form-control" id="role_id"  name="role_id" required>
+                    <input type="hidden" class="form-control" id="role_id" value="3" name="role_id" required>
                 </div>
                 <div class="form-group">
-                    <label for="role_id">Faculty ID:</label>
-                    <input type="number" class="form-control" id="fa_id" name="fa_id" required>
+                <label for="fa_id">Choose faculty</label>
+
+                    <select name="fa_id" class="form-control">
+                        <?php
+                        foreach($faculty as $fac)
+                        {
+                            echo "  <option value='".$fac['Fa_ID']."'>".$fac['Fa_Name'] ."</option>";
+                        }
+                        ?>
+                    </select>
                 </div>
                 <button type="submit" class="btn btn-success">Add Account</button>
             </form>

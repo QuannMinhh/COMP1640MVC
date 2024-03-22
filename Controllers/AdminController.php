@@ -209,6 +209,8 @@ class AdminController {
     public function insert_coordinator() {
         ob_start();
         if($this->is_login == true && $_SESSION['role_id'] == 1) {
+            $adminModel = new AdminModel();
+            $faculty = $adminModel->getAllFaculty() ;
             include 'views/admin_add_coordinator.php'; 
                     // Xử lý thêm mới Manager
                     if ($_SERVER['REQUEST_METHOD'] == 'POST') {

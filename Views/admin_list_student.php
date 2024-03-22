@@ -46,7 +46,7 @@
         <table class="table table-bordered border-bold">
             <thead class="thread-dark">
                 <tr class="table-primary table-bordered border-info-bold">
-                    <th>ID</th>
+                    <!-- <th>ID</th> -->
                     <th>Userame</th>
                     <th>Email</th>
                     <th>Fullname</th>
@@ -59,12 +59,12 @@
             <tbody>
                 <?php foreach ($admin as $admin): ?>
                     <tr class="table-secondary">
-                        <td><?php echo $admin['Stu_ID']; ?></td>
+                        <!-- <td><?php echo $admin['Stu_ID']; ?></td> -->
                         <td><?php echo $admin['Stu_Username']; ?></td>
                         <td><?php echo $admin['Stu_Email']; ?></td>
                         <td><?php echo $admin['Stu_FullName']; ?></td>
                         <td><?php echo $admin['Stu_DOB']; ?></td>
-                        <td><?php echo $admin['Fa_ID']; ?></td>
+                        <td><?php echo $admin['Fa_Name']; ?></td>
                         <td>
                             
                             
@@ -79,7 +79,7 @@
                         </button>
                         <button class="btn btn-danger">
                             <a style="text-decoration: none; color:#fff" 
-                            href="index.php?action=delete_student&id=<?php echo $admin['Stu_ID']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa tài khoản này không?')"><i class="bi bi-trash"></i></a>
+                            href="index.php?action=delete_student&id=<?php echo $admin['Stu_ID']; ?>" onclick="return confirm('Do you want to delete this account')"><i class="bi bi-trash"></i></a>
                         </button>
                         </td>
                     </tr>

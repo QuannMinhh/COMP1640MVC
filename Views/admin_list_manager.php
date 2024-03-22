@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Manager</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 </head>
     <style>
@@ -25,7 +26,8 @@
             color: rgba(113, 99, 186, 255);
             padding-bottom: 10px;
             font-size: 25px;
-            
+            text-align: center;
+            text-transform: uppercase;
         }
     </style>
 <body>
@@ -38,13 +40,13 @@
             <h2>List of Manager</h2>
             <button style="margin-bottom: 10px" class="btn btn-primary">
                 <a style="text-decoration: none; color:#fff" 
-                href="index.php?action=insert_manager">Add new manager</a>
+                href="index.php?action=insert_manager"><i class="bi bi-plus-square"></i> Add Manager</a>
             </button>
             
             <table class="table table-bordered border-bold">
                 <thead class="thread-dark">
                     <tr class="table-primary table-bordered border-info-bold">
-                        <th>ID</th>
+                        
                         <th>Name</th>
                         <th>Email</th>
                         <th>DOB</th>
@@ -54,19 +56,19 @@
                 <tbody>
                     <?php foreach ($admin as $admin): ?>
                         <tr class="table-secondary">
-                            <td><?php echo $admin['Ma_ID']; ?></td>
+                            <!-- <td><?php echo $admin['Ma_ID']; ?></td> -->
                             <td><?php echo $admin['Ma_Username']; ?></td>
                             <td><?php echo $admin['Ma_Email']; ?></td>
                             <td><?php echo $admin['Ma_DOB']; ?></td>
                             <td>
                                 <button class="btn btn-success">
                                     <a style="text-decoration: none; color:#fff" 
-                                    href="index.php?action=update_manager&id=<?php echo $admin['Ma_ID']; ?>">Edit</a>
+                                    href="index.php?action=update_manager&id=<?php echo $admin['Ma_ID']; ?>"><i class="bi bi-pencil-square"></i></a>
                                 </button>
 
                                 <button type="button" class="btn btn-danger">
                                 <a style="text-decoration: none; color:#fff"
-                                href="index.php?action=delete_manager&id=<?php echo $admin['Ma_ID']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa tài khoản này không?')">Delete</a>
+                                href="index.php?action=delete_manager&id=<?php echo $admin['Ma_ID']; ?>" onclick="return confirm('Do you want to delete this account')"><i class="bi bi-trash"></i></a>
                                 </button>
                             </td>
                         </tr>

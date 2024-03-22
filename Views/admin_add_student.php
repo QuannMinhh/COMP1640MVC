@@ -38,33 +38,32 @@
             <h2>Add Student Account</h2>
             <form  method="POST" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label for="username">Username:</label>
+                    <label for="username">Username</label>
                     <input type="text" class="form-control" id="username" name="username" required>
                 </div>
                 <div class="form-group">
-                    <label for="password">Password:</label>
+                    <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" name="password" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email:</label>
+                    <label for="email">Email</label>
                     <input type="email"  class="form-control" id="email" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Fullname:</label>
+                    <label for="email">Fullname</label>
                     <input type="text" class="form-control" id="fullname" name="fullname" required>
                 </div>
                 <div class="form-group">
-                    <label for="dob">Date of Birth:</label>
+                    <label for="dob">Date of Birth</label>
                     <input type="date" class="form-control" id="dob" name="dob" required>
                 </div>
                 <div class="form-group">
-                    <label for="dob">Role:</label>
-                    <input type="number" class="form-control" id="role_id"  name="role_id" required>
+                    <input type="hidden" class="form-control" id="role_id" value="4" name="role_id" required>
                 </div>
                 <div class="form-group">
                 <label for="fa_id">Choose faculty</label>
 
-                    <select name="fa_id" >
+                    <select name="fa_id" class="form-control">
                      <?php
                          foreach($faculty as $fac)
                          {

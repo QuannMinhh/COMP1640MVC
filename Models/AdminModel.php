@@ -55,9 +55,12 @@ class AdminModel
         $sql->execute(array(':id' => $id));
     }
 
-    public function getAllStudentAccount()
-    {
-        $query = "SELECT * FROM Student";
+
+  
+
+    public function getAllStudentAccount() {
+        $query = "SELECT * FROM Student Join Faculty ON Student.Fa_ID = Faculty.Fa_ID;";
+
         $sql = $this->conn->query($query);
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -101,9 +104,12 @@ class AdminModel
         $sql->execute(array(':id' => $id));
     }
 
-    public function getAllCoordinatorAccount()
-    {
-        $query = "SELECT * FROM Coordinator";
+
+
+
+    public function getAllCoordinatorAccount() {
+        $query = "SELECT * FROM Coordinator Join Faculty ON Coordinator.Fa_ID = Faculty.Fa_ID";
+
         $sql = $this->conn->query($query);
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
