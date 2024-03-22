@@ -131,10 +131,9 @@ class AdminController {
             include 'views/admin_add_student.php'; 
              # Xử lý thêm mới student
               if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                // $targetDirectory = "Image/";
-                // $targetFile = $targetDirectory . basename($_FILES["avatar"]["name"]);
+             
                 $file = $_FILES["avatar"];
-                // move_uploaded_file($_FILES["avatar"]["tmp_name"], $targetFile);
+             
                 $imageData = file_get_contents($file["tmp_name"]);
                
                   $username = $_POST['username'];
