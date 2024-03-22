@@ -70,7 +70,7 @@
                             
                        <?php  
                         echo '<img src="data:image/*;base64,' . base64_encode($admin['Image']) . '" />';
-                       ?>
+                       ?>   
                         </td>
                         <td>
                         <button class="btn btn-success">

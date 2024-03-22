@@ -131,12 +131,9 @@ class AdminController {
             include 'views/admin_add_student.php'; 
              # Xử lý thêm mới student
               if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-              
-          
-                $file = $_FILES["avatar"];
-               
+                $file = $_FILES["avatar"];             
                 $imageData = file_get_contents($file["tmp_name"]);
-               
+                    
                   $username = $_POST['username'];
                   $password = $_POST['password'];
                   $email = $_POST['email'];
