@@ -71,7 +71,7 @@
                         </button>
                         <button class="btn btn-danger">
                             <a style="text-decoration: none; color:#fff" 
-                            href="index.php?action=delete_student&id=<?php echo $admin['Stu_ID']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa tài khoản này không?')"><i class="bi bi-trash"></i></a>
+                            href="index.php?action=delete_student&id=<?php echo $admin['Stu_ID']; ?>" onclick="return confirm('Do you want to delete this account')"><i class="bi bi-trash"></i></a>
                         </button>
                         </td>
                     </tr>
