@@ -52,6 +52,11 @@ class AdminModel {
         $sql = $this->conn->query($query);
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
+    public function getAllFaculty() {
+        $query = "SELECT * FROM faculty";
+        $sql = $this->conn->query($query);
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     public function getStudentAccountById($id) {
         $query = "SELECT * FROM Student WHERE Stu_ID = :id";
