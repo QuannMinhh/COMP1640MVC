@@ -27,6 +27,10 @@
             font-size: 25px;
             
         }
+        label {
+            color: #4B0082;
+            font-weight: 600; 
+        }
     </style>
 <body>
     <?php 
@@ -38,24 +42,66 @@
         <h2>Add Manager Account</h2>
         <form  method="POST">
             <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" class="form-control" id="username" name="username" required>
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username" >
+                <?php
+                    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["username"])) {
+                        $username = $_POST["username"];
+                        if (empty($username)) {
+                            echo '<div class="text-danger">Username không được để trống.</div>';
+                        } else {
+                            // Kiểm tra độ dài và ký tự đặc biệt của Username
+                            if (!preg_match('/^[a-zA-Z0-9]{4,10}$/', $username)) {
+                                echo '<div class="text-danger">Username phải có độ dài từ 4 đến 10 ký tự và không chứa ký tự đặc biệt.</div>';
+                            }
+                        }
+                    }
+                ?>
             </div>
             <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" class="form-control" id="password" name="password" required>
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" >
+                <?php
+                    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["password"])) {
+                        $password = $_POST["password"];
+                        if (empty($password)) {
+                            echo '<div class="text-danger">Password không được để trống.</div>';
+                        } else {
+                            // Thêm các điều kiện kiểm tra khác tại đây nếu cần
+                        }
+                    }
+                ?>
             </div>
             <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" required>
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" >
+                <?php
+                    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["email"])) {
+                        $email = $_POST["email"];
+                        if (empty($email)) {
+                            echo '<div class="text-danger">Email không được để trống.</div>';
+                        } else {
+                            // Thêm các điều kiện kiểm tra khác tại đây nếu cần
+                        }
+                    }
+                ?>
             </div>
             <div class="form-group">
-                <label for="dob">Date of Birth:</label>
-                <input type="date" class="form-control" id="dob" name="dob" required>
+                <label for="dob">Date of Birth</label>
+                <input type="date" class="form-control" id="dob" name="dob" >
+                <?php
+                    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["dob"])) {
+                        $dob = $_POST["dob"];
+                        if (empty($dob)) {
+                            echo '<div class="text-danger">Date of Birth không được để trống.</div>';
+                        } else {
+                            // Thêm các điều kiện kiểm tra khác tại đây nếu cần
+                        }
+                    }
+                ?>
             </div>
             <div class="form-group">
-                <label for="role_id">Role ID:</label>
-                <input type="number" class="form-control" id="role_id" name="role_id" required>
+                <input type="hidden" class="form-control" id="role_id" value="2" name="role_id" required>
             </div>
             <button type="submit" class="btn btn-success">Add Account</button>
             <!-- <input type="submit" value="Add Account"> -->
