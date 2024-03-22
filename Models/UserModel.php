@@ -34,7 +34,8 @@ class UserModel{
                        return false;
                     }    
                 default:
-                break;
+                return false;
+                
         }
     }
     public function getAllRole(){
