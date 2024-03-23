@@ -58,8 +58,12 @@ class AdminController {
                // Xử lý thêm mới Manager
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                $file = $_FILES["avatar"];             
-                $imageData = file_get_contents($file["tmp_name"]);
+                if(isset($_FILES["avatar"]) && !empty($_FILES["avatar"]["tmp_name"])){
+                           
+                    $imageData = file_get_contents($_FILES["avatar"]["tmp_name"]);
+                    }  else{
+                        $imageData=null;
+                    }
                 $username = $_POST['username'];
                 $password = $_POST['password'];
                 $email = $_POST['email'];
@@ -91,12 +95,7 @@ class AdminController {
 
     
 
-    // public function edit_manager($id) {
-    //     // Hiển thị form chỉnh sửa Manager
-    //     $adminModel = new AdminModel();
-    //     $admin = $adminModel->getManagerAccountById($id);
-    //     include 'views/admin_edit_manager.php';
-    // }
+ 
 
     public function update_manager($id) {
         ob_start();
@@ -157,9 +156,12 @@ class AdminController {
 
              # Xử lý thêm mới student
               if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                $file = $_FILES["avatar"];             
-                $imageData = file_get_contents($file["tmp_name"]);
-                    
+                if(isset($_FILES["avatar"]) && !empty($_FILES["avatar"]["tmp_name"])){
+                           
+                $imageData = file_get_contents($_FILES["avatar"]["tmp_name"]);
+                }  else{
+                    $imageData=null;
+                }
                   $username = $_POST['username'];
                   $password = $_POST['password'];
                   $email = $_POST['email'];
@@ -239,8 +241,12 @@ class AdminController {
             include 'views/admin_add_coordinator.php'; 
                     // Xử lý thêm mới Manager
                     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                        $file = $_FILES["avatar"];             
-                        $imageData = file_get_contents($file["tmp_name"]);
+                        if(isset($_FILES["avatar"]) && !empty($_FILES["avatar"]["tmp_name"])){
+                           
+                            $imageData = file_get_contents($_FILES["avatar"]["tmp_name"]);
+                            }  else{
+                                $imageData=null;
+                            }
                         $username = $_POST['username'];
                         $password = $_POST['password'];
                         $email = $_POST['email'];
