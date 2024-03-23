@@ -41,7 +41,7 @@
         <?php include 'Layout/admin_navbar.php' ?>
         <div class="tabular--wrapper">
             <h2>Edit student Account</h2>
-            <form action="index.php?action=update_student&id=<?php echo $admin['Stu_ID']; ?>" method="POST">
+            <form action="index.php?action=update_student&id=<?php echo $admin['Stu_ID']; ?>" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" class="form-control" id="username" name="username" value="<?php echo $admin['Stu_Username']; ?>" required>
@@ -69,7 +69,14 @@
                     <label for="role_id">Faculty:</label>
                     <input type="number" class="form-control" id="fa_id" name="fa_id" value="<?php echo $admin['Fa_ID']; ?>" required>
                 </div>
-                
+                <div class="form-group">
+                    <label for="role_id">Image:</label>
+                    <?php  
+                        echo '<img  src="data:image/*;base64,' . base64_encode($admin['Image']) . '" />';
+                       ?>  
+                       <input type="hidden" name="avatar" id="avatar" value="<?=  base64_encode($admin['Image'])?>">
+                          <input type="file" id="new-avatar" name="new_avatar" accept="image/*" >
+                </div>
                 <button type="submit" class="btn btn-success">Save Changes</button>
             </form>
         </div>

@@ -58,6 +58,8 @@ class AdminController {
                // Xử lý thêm mới Manager
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $file = $_FILES["avatar"];             
+                $imageData = file_get_contents($file["tmp_name"]);
                 $username = $_POST['username'];
                 $password = $_POST['password'];
                 $email = $_POST['email'];
@@ -68,26 +70,14 @@ class AdminController {
                     // Kiểm tra Username có độ dài từ 4 đến 10 ký tự, không có khoảng trắng và không có ký tự đặc biệt
                     if (preg_match('/^\w{4,10}$/', $username)) {
                         $adminModel = new adminModel();
-                        $adminModel->addManagerAccount($username, $password, $email, $dob, $roleId);
+                        $adminModel->addManagerAccount($username, $password, $email, $dob, $roleId,$imageData);
                     
                         // Chuyển hướng sau khi thêm thành công
                         header('Location: index.php?action=manager');
                         exit();
                     }
 
-            //    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            //        $username = $_POST['username'];
-            //        $password = $_POST['password'];
-            //        $email = $_POST['email'];
-            //        $dob = $_POST['dob'];
-            //        $roleId = $_POST['role_id'];     
-            //        $adminModel = new adminModel();
-            //        $adminModel->addManagerAccount($username, $password, $email, $dob, $roleId);
-       
-            //        // Chuyển hướng sau khi thêm thành công
-            //        header('Location: index.php');
-            //        exit();
-            //    }
+           
        } else {
                   echo"access dined";
 
@@ -116,13 +106,22 @@ class AdminController {
                 include 'views/admin_edit_manager.php';
                 // Xử lý cập nhật Manager
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    if(isset($_FILES["new_avatar"]) && !empty($_FILES["new_avatar"]["tmp_name"]))
+                { 
+                    $file = $_FILES["new_avatar"];
+                    $imageData = file_get_contents($file["tmp_name"]);          
+                }
+                else{
+                    $image = $_POST["avatar"];
+                    $imageData = base64_decode($image);                  
+                }
                     $username = $_POST['username'];
                     $password = $_POST['password'];
                     $email = $_POST['email'];         
                     $dob = $_POST['dob'];
                     $roleId = $_POST['role_id'];          
                     $adminModel = new AdminModel();
-                    $adminModel->updateManagerAccount($id, $username, $password, $email,  $dob, $roleId, );
+                    $adminModel->updateManagerAccount($id, $username, $password, $email,  $dob, $roleId, $imageData);
         
                     // Chuyển hướng sau khi cập nhật thành công
                     header('Location: index.php?action=manager');
@@ -193,6 +192,15 @@ class AdminController {
                 
                 // Xử lý cập nhật Manager
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    if(isset($_FILES["new_avatar"]) && !empty($_FILES["new_avatar"]["tmp_name"]))
+                    { 
+                        $file = $_FILES["new_avatar"];
+                        $imageData = file_get_contents($file["tmp_name"]);          
+                    }
+                    else{
+                        $image = $_POST["avatar"];
+                        $imageData = base64_decode($image);                  
+                    }
                     $username = $_POST['username'];
                     $password = $_POST['password'];
                     $email = $_POST['email'];
@@ -202,7 +210,7 @@ class AdminController {
                     $fa_id = $_POST['fa_id'];
         
                     $adminModel = new AdminModel();
-                    $adminModel->updateStudentAccount($id, $username, $password, $email, $fullname, $dob, $roleId, $fa_id);
+                    $adminModel->updateStudentAccount($id, $username, $password, $email, $fullname, $dob, $roleId, $fa_id,$imageData);
         
                     // Chuyển hướng sau khi cập nhật thành công
                     header('Location: index.php?action=student');
@@ -231,6 +239,8 @@ class AdminController {
             include 'views/admin_add_coordinator.php'; 
                     // Xử lý thêm mới Manager
                     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                        $file = $_FILES["avatar"];             
+                        $imageData = file_get_contents($file["tmp_name"]);
                         $username = $_POST['username'];
                         $password = $_POST['password'];
                         $email = $_POST['email'];
@@ -239,7 +249,7 @@ class AdminController {
                         $role_Id = $_POST['role_id'];
                         $fa_id = $_POST['fa_id'];
                         $adminModel = new adminModel();
-                        $adminModel->addCoordinatorAccount($username, $password, $email, $fullname, $dob, $role_Id, $fa_id);
+                        $adminModel->addCoordinatorAccount($username, $password, $email, $fullname, $dob, $role_Id, $fa_id,$imageData);
             
                         // Chuyển hướng sau khi thêm thành công
                         header('Location: index.php?action=coordinator');
@@ -261,9 +271,19 @@ class AdminController {
                    $admin = $adminModel->getCoordinatorAccountById($id);
                    
                    include 'views/admin_edit_coordinator.php';
-                   
+                  
                    // Xử lý cập nhật Manager
-                   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                   if ($_SERVER['REQUEST_METHOD'] == 'POST') {               
+                    if(isset($_FILES["new_avatar"]) && !empty($_FILES["new_avatar"]["tmp_name"]))
+                { 
+                    $file = $_FILES["new_avatar"];
+                    $imageData = file_get_contents($file["tmp_name"]);          
+                }
+                else{
+                    $image = $_POST["avatar"];
+                    $imageData = base64_decode($image);                  
+                }
+                   
                        $username = $_POST['username'];
                        $password = $_POST['password'];
                        $email = $_POST['email'];
@@ -273,10 +293,10 @@ class AdminController {
                        $fa_id = $_POST['fa_id'];
            
                        $adminModel = new AdminModel();
-                       $adminModel->updateCoordinatorAccount($id, $username, $password, $email, $fullname, $dob, $roleId, $fa_id);
+                       $adminModel->updateCoordinatorAccount($id, $username, $password, $email, $fullname, $dob, $roleId, $fa_id,$imageData);
            
                        // Chuyển hướng sau khi cập nhật thành công
-                       header('Location: index.php?action=coordinator');
+                    # header('Location: index.php?action=coordinator');
                        exit();
                    }} 
            else {

@@ -65,11 +65,9 @@
                         <td><?php echo $admin['Stu_FullName']; ?></td>
                         <td><?php echo $admin['Stu_DOB']; ?></td>
                         <td><?php echo $admin['Fa_Name']; ?></td>
-                        <td>
-                            
-                            
+                        <td>    
                        <?php  
-                        echo '<img src="data:image/*;base64,' . base64_encode($admin['Image']) . '" />';
+                        echo '<img  src="data:image/*;base64,' . base64_encode($admin['Image']) . '" />';
                        ?>   
                         </td>
                         <td>

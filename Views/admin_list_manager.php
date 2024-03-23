@@ -50,6 +50,7 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>DOB</th>
+                        <th>Image</th>
                         <th style="text-align: center;">Action</th>
                     </tr>
                 </thead>
@@ -60,6 +61,12 @@
                             <td><?php echo $admin['Ma_Username']; ?></td>
                             <td><?php echo $admin['Ma_Email']; ?></td>
                             <td><?php echo $admin['Ma_DOB']; ?></td>
+                            <td>
+                            <?php  
+                        echo '<img  src="data:image/*;base64,' . base64_encode($admin['Image']) . '" />';
+                       ?>  
+
+                            </td>
                             <td>
                                 <button class="btn btn-success">
                                     <a style="text-decoration: none; color:#fff" 

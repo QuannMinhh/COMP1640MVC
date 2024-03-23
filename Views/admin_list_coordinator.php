@@ -52,6 +52,7 @@
                 <th>Fullname</th>
                 <th>DOB</th>
                 <th>Faculty</th>
+                <th>Image</th>
                 <th style="text-align: center;">Action</th>
             </tr>
         </thead>
@@ -64,6 +65,12 @@
                     <td><?php echo $admin['Coor_FullName']; ?></td>
                     <td><?php echo $admin['Coor_DOB']; ?></td>
                     <td><?php echo $admin['Fa_Name']; ?></td>
+                    <td>
+                    <?php  
+                        echo '<img  src="data:image/*;base64,' . base64_encode($admin['Image']) . '" />';
+                       ?>  
+                
+                    </td>
                     <td>
                     <button class="btn btn-success">
                         <a style="text-decoration: none; color:#fff" 

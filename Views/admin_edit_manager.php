@@ -42,7 +42,7 @@
         <?php include 'Layout/admin_navbar.php' ?>
         <div class="tabular--wrapper">
         <h2>Edit Manager Account</h2>
-        <form action="index.php?action=update_manager&id=<?php echo $admin['Ma_ID']; ?>" method="POST">
+        <form action="index.php?action=update_manager&id=<?php echo $admin['Ma_ID']; ?>" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" class="form-control" id="username" name="username" value="<?php echo $admin['Ma_Username']; ?>" required>
@@ -62,7 +62,14 @@
             <div class="form-group">
                 <input type="hidden" class="form-control" id="role_id" name="role_id" value="<?php echo $admin['Role_ID']; ?>" required>
             </div>
-            
+            <div class="form-group">
+                    <label for="role_id">Image:</label>
+                    <?php  
+                        echo '<img  src="data:image/*;base64,' . base64_encode($admin['Image']) . '" />';
+                       ?>  
+                       <input type="hidden" name="avatar" id="avatar" value="<?= base64_encode($admin['Image'])?>">
+                          <input type="file" id="new-avatar" name="new_avatar" accept="image/*" >
+                </div>
             <button type="submit" class="btn btn-success">Save Changes</button>
         </form>
         </div>
