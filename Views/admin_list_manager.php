@@ -63,6 +63,7 @@
                             <td><?php echo $admin['Ma_DOB']; ?></td>
                             <td>
                             <?php  
+                       if($admin['Image'] != null)
                         echo '<img  src="data:image/*;base64,' . base64_encode($admin['Image']) . '" />';
                        ?>  
 

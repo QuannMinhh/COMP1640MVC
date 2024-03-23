@@ -70,6 +70,7 @@
                 <div class="form-group">
                     <label for="role_id">Image:</label>
                     <?php  
+                       if($admin['Image'] != null)
                         echo '<img  src="data:image/*;base64,' . base64_encode($admin['Image']) . '" />';
                        ?>  
                         <input type="hidden" name="avatar" id="avatar" value="<?= base64_encode($admin['Image'])?>">

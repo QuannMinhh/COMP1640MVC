@@ -67,8 +67,9 @@
                     <td><?php echo $admin['Fa_Name']; ?></td>
                     <td>
                     <?php  
+                       if($admin['Image'] != null)
                         echo '<img  src="data:image/*;base64,' . base64_encode($admin['Image']) . '" />';
-                       ?>  
+                       ?>   
                 
                     </td>
                     <td>
