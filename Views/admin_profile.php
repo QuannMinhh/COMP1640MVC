@@ -41,10 +41,8 @@
             <h2>Admin profile</h2>
             <?php foreach ($admin as $admin): ?>
             <div class="profile-container text-center">
-            <img src="<?php  
-                       if($admin['Image'] != null)
-                        echo '<img  src="data:image/*;base64,' . base64_encode($admin['Image']) . '" />';
-                       ?>  " alt="Profile Picture" class="profile-img mb-3">
+            <img src="<?php echo ($admin['Image'] != null) ? 'data:image/*;base64,' . base64_encode($admin['Image']) : 'placeholder_image_url.jpg'; ?>" alt="Profile Picture" class="profile-img mb-3">
+
             <h2 class="mb-3"><?php echo $admin['Ad_Username'] ; ?>
             <p class="text-muted">Admin</p>
             <hr>
