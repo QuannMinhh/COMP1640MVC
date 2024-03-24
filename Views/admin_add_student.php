@@ -36,7 +36,7 @@
         include 'Layout/admin_sidebar.php'
     ?>
     <div class="main--content">
-        <?php include 'Layout/admin_navbar.php' ?>
+        <?php  $search=false; include 'Layout/admin_navbar.php' ?>
         <div class="tabular--wrapper">
             <h2>Add Student Account</h2>
             <form  method="POST" enctype="multipart/form-data">
@@ -61,7 +61,7 @@
                     <input type="date" class="form-control" id="dob" name="dob" required>
                 </div>
                 <div class="form-group">
-                    <input type="hidden" class="form-control" id="role_id" value="4" name="role_id" required>
+                    <input type="hidden" class="form-control" id="role_id" value="2" name="role_id" required>
                 </div>
                 <div class="form-group">
                 <label for="fa_id">Choose faculty</label>

@@ -58,26 +58,22 @@ class AdminController {
     public function indexCoordinator() {
         // Hiển thị danh sách Manager
         if($this->is_login == true && $_SESSION['role_id'] == 1) {
-            $adminModel = new adminModel();   
+            $adminModel = new adminModel(); 
             if($_SERVER ['REQUEST_METHOD'] == 'POST') {
+                
             if(isset( $_POST['username'])){
                 $username =  $_POST['username'];
                 $admin = $adminModel->getCoordinatorAccountByName($username);
             }
-            else if(isset( $_POST['fa_id'])){
+             if(isset( $_POST['fa_id'])){
             $fa_id = $_POST['fa_id'];
             $admin = $adminModel->getCoordinatorAccountByFaculty($fa_id);
             }
-        else{
+        }
+            else{
             $admin = $adminModel->getAllCoordinatorAccount();
         } 
-    }
-            // if($_SERVER ['REQUEST_METHOD'] == 'POST') {
-            //     $fa_id = $_POST['fa_id'];
-            //     $admin = $adminModel->getCoordinatorAccountByFaculty($fa_id);
-            // }else{
-            //     $admin = $adminModel->getAllCoordinatorAccount();
-            // }
+    
             $faculty = $adminModel->getAllFaculty() ;
             include 'views/admin_list_coordinator.php';
          } else {

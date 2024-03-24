@@ -39,7 +39,7 @@
         include 'Layout/admin_sidebar.php'
     ?>
     <div class="main--content">
-        <?php include 'Layout/admin_navbar.php' ?>
+        <?php  $search=false; include 'Layout/admin_navbar.php' ?>
         <div class="tabular--wrapper">
         <h2>Edit Manager Account</h2>
         <form action="index.php?action=update_manager&id=<?php echo $admin['Ma_ID']; ?>" method="POST" enctype="multipart/form-data">

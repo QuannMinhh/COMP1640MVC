@@ -37,7 +37,9 @@
         include 'Layout/admin_sidebar.php'
     ?>
     <div class="main--content">
-        <?php include 'Layout/admin_navbar.php' ?>
+        <?php
+        $search=false;
+         include 'Layout/admin_navbar.php' ?>
         <div class="tabular--wrapper">
         <h2>Add Manager Account</h2>
         <form  method="POST" enctype="multipart/form-data">
@@ -101,7 +103,7 @@
                 ?>
             </div>
             <div class="form-group">
-                <input type="hidden" class="form-control" id="role_id" value="2" name="role_id" required>
+                <input type="hidden" class="form-control" id="role_id" value="3" name="role_id" required>
             </div>
             <div class="form-group">
                 <label for="avatar">Avatar:</label>
