@@ -12,9 +12,16 @@ class AdminController {
         // Hiển thị danh sách Manager
          if($this->is_login == true && $_SESSION['role_id'] == 1) {
          $adminModel = new adminModel();
-         $admin = $adminModel->getAllManagerAccount();
-         include 'views/admin_list_manager.php';
-      
+         if(isset( $_POST['username'])){
+            $username =  $_POST['username'];
+            $admin = $adminModel->getManagerAccountByName($username);
+        }
+       
+
+        else {
+        $admin = $adminModel->getAllManagerAccount();
+        }
+         include 'views/admin_list_manager.php';     
          } else if($this->is_login == true && $_SESSION['role_id'] != 1){
             echo'access dinied';
          }
@@ -28,7 +35,20 @@ class AdminController {
         // Hiển thị danh sách Manager
         if($this->is_login == true && $_SESSION['role_id'] == 1) {
             $adminModel = new adminModel();
-            $admin = $adminModel->getAllStudentAccount();
+            if($_SERVER ['REQUEST_METHOD'] == 'POST') {
+                if(isset( $_POST['username'])){
+                    $username =  $_POST['username'];
+                    $admin = $adminModel->getStudentAccountByName($username);
+                }
+                if(isset( $_POST['fa_id'])){
+                $fa_id = $_POST['fa_id'];
+                $admin = $adminModel->getStudentAccountByFaculty($fa_id);
+                }
+            }else{
+                $admin = $adminModel->getAllStudentAccount();
+            }
+            $faculty = $adminModel->getAllFaculty() ;
+            
             include 'views/admin_list_student.php';
         } else {
                 echo"access dined";
@@ -38,18 +58,33 @@ class AdminController {
     public function indexCoordinator() {
         // Hiển thị danh sách Manager
         if($this->is_login == true && $_SESSION['role_id'] == 1) {
-            $adminModel = new adminModel();
+            $adminModel = new adminModel();   
+            if($_SERVER ['REQUEST_METHOD'] == 'POST') {
+            if(isset( $_POST['username'])){
+                $username =  $_POST['username'];
+                $admin = $adminModel->getCoordinatorAccountByName($username);
+            }
+            else if(isset( $_POST['fa_id'])){
+            $fa_id = $_POST['fa_id'];
+            $admin = $adminModel->getCoordinatorAccountByFaculty($fa_id);
+            }
+        else{
             $admin = $adminModel->getAllCoordinatorAccount();
+        } 
+    }
+            // if($_SERVER ['REQUEST_METHOD'] == 'POST') {
+            //     $fa_id = $_POST['fa_id'];
+            //     $admin = $adminModel->getCoordinatorAccountByFaculty($fa_id);
+            // }else{
+            //     $admin = $adminModel->getAllCoordinatorAccount();
+            // }
+            $faculty = $adminModel->getAllFaculty() ;
             include 'views/admin_list_coordinator.php';
          } else {
                     echo"access dined";
                   }
+                
     }
-
-    // public function add_manager() {
-    //     // Hiển thị form thêm mới Manager và truyền danh sách vai trò
-    //     include 'views/admin_add_manager.php'; 
-    // }    
 
     public function insert_manager() {
         ob_start();
@@ -189,7 +224,7 @@ class AdminController {
         if($this->is_login == true && $_SESSION['role_id'] == 1) {
             $adminModel = new AdminModel();
                 $admin = $adminModel->getStudentAccountById($id);
-                
+                $faculty = $adminModel->getAllFaculty();
                 include 'views/admin_edit_student.php';
                 
                 // Xử lý cập nhật Manager
@@ -238,6 +273,8 @@ class AdminController {
     public function insert_coordinator() {
         ob_start();
         if($this->is_login == true && $_SESSION['role_id'] == 1) {
+            $adminModel = new adminModel();
+            $faculty = $adminModel->getAllFaculty() ;
             include 'views/admin_add_coordinator.php'; 
                     // Xử lý thêm mới Manager
                     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -254,7 +291,7 @@ class AdminController {
                         $dob = $_POST['dob'];
                         $role_Id = $_POST['role_id'];
                         $fa_id = $_POST['fa_id'];
-                        $adminModel = new adminModel();
+                      
                         $adminModel->addCoordinatorAccount($username, $password, $email, $fullname, $dob, $role_Id, $fa_id,$imageData);
             
                         // Chuyển hướng sau khi thêm thành công
@@ -275,7 +312,7 @@ class AdminController {
         if($this->is_login == true && $_SESSION['role_id'] == 1) {
             $adminModel = new AdminModel();
                    $admin = $adminModel->getCoordinatorAccountById($id);
-                   
+                   $faculty = $adminModel->getAllFaculty() ;
                    include 'views/admin_edit_coordinator.php';
                   
                    // Xử lý cập nhật Manager
@@ -297,12 +334,11 @@ class AdminController {
                        $dob = $_POST['dob'];
                        $roleId = $_POST['role_id'];
                        $fa_id = $_POST['fa_id'];
-           
                        $adminModel = new AdminModel();
                        $adminModel->updateCoordinatorAccount($id, $username, $password, $email, $fullname, $dob, $roleId, $fa_id,$imageData);
-           
+
                        // Chuyển hướng sau khi cập nhật thành công
-                    # header('Location: index.php?action=coordinator');
+                     header('Location: index.php?action=coordinator');
                        exit();
                    }} 
            else {

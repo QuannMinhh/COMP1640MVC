@@ -42,7 +42,19 @@
             <a style="text-decoration: none; color:#fff"
             href="index.php?action=insert_coordinator"><i class="bi bi-plus-square"></i> Add Coordinator</a>
         </button>
+        <form method="POST">
+            <label for="faculty">Choose faculty:</label>
+        <select name="fa_id" >
+                
+                <?php 
+                    foreach($faculty as $f){
+                        echo " <option  value='".$f['Fa_ID']."'>" .$f['Fa_Name']."</option>";
+                    }
+                ?>
 
+        </select>   
+        <button type="submit" class="btn btn-success">go</button>
+            </form>
         <table class="table table-bordered border-bold">
         <thead class="thread-dark">
             <tr class="table-primary table-bordered border-info-bold">

@@ -73,7 +73,7 @@ class AdminModel
 
     public function getStudentAccountById($id)
     {
-        $query = "SELECT * FROM Student WHERE Stu_ID = :id";
+        $query = "SELECT student.*,faculty.Fa_Name   from student INNER Join faculty   WHERE Stu_ID = :id";
         $sql = $this->conn->prepare($query);
         $sql->execute(array(':id' => $id));
         return $sql->fetch(PDO::FETCH_ASSOC);
@@ -137,14 +137,46 @@ class AdminModel
         $sql = $this->conn->prepare($query);
         $sql->execute(array(':username' => $username, ':password' => $password, ':email' => $email, ':fullname' => $fullname, ':dob' => $dob, ':role_id' => $roleId, ':fa_id' => $fa_id, ':id' => $id,':imageData'=>$imageData));
     }
-
-
-
     public function deleteCoordinatorAccount($id)
     {
         $query = "DELETE FROM Coordinator WHERE Coor_ID = :id";
         $sql = $this->conn->prepare($query);
         $sql->execute(array(':id' => $id));
+    }
+    public function getStudentAccountByFaculty($fa_id)
+    {
+        $query = 'SELECT student.* ,faculty.Fa_Name from student INNER Join Faculty ON Student.Fa_ID = Faculty.Fa_ID where student.Fa_ID= :fa_id;';
+        $sql = $this->conn->prepare($query);
+        $sql->execute(array(':fa_id'=> $fa_id));
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function getStudentAccountByName($username)
+    {
+        $query = 'SELECT student.* ,faculty.Fa_Name from student INNER Join Faculty ON Student.Fa_ID = Faculty.Fa_ID where student.Stu_Username= :username;';
+        $sql = $this->conn->prepare($query);
+        $sql->execute(array(':username'=> $username));
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function getCoordinatorAccountByName($username)
+    {
+        $query = 'SELECT coordinator.* ,faculty.Fa_Name from coordinator INNER Join Faculty ON coordinator.Fa_ID = Faculty.Fa_ID where coordinator.Coor_Username= :username;';
+        $sql = $this->conn->prepare($query);
+        $sql->execute(array(':username'=> $username));
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function getManagerAccountByName($username)
+    {
+        $query = 'SELECT * from manager where Ma_Username = :username';
+        $sql = $this->conn->prepare($query);
+        $sql->execute(array(':username'=> $username));
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function getCoordinatorAccountByFaculty($fa_id)
+    {
+        $query = 'SELECT coordinator.* ,faculty.Fa_Name from coordinator INNER Join Faculty ON coordinator.Fa_ID = Faculty.Fa_ID where coordinator.Fa_ID= :fa_id;';
+        $sql = $this->conn->prepare($query);
+        $sql->execute(array(':fa_id'=> $fa_id));
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
 }
 ?>

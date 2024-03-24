@@ -41,8 +41,7 @@
             <button style="margin-bottom: 10px" class="btn btn-primary">
                 <a style="text-decoration: none; color:#fff" 
                 href="index.php?action=insert_manager"><i class="bi bi-plus-square"></i> Add Manager</a>
-            </button>
-            
+            </button>         
             <table class="table table-bordered border-bold">
                 <thead class="thread-dark">
                     <tr class="table-primary table-bordered border-info-bold">

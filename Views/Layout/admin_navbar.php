@@ -179,10 +179,14 @@
                 <h1>ADMIN PAGE</h1>
             </div>
             <div class="user--info">
+                <form method="post" >
+    
                 <div class="search--box">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Search">
+                   
+                    <input name="username" type="text" placeholder="Search">
+                    <button type = "submit" class="fa-solid fa-magnifying-glass"></button>    
                 </div>
+                </form>
                 <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/12/Icon-Truong-Dai-hoc-Greenwich-Viet-Nam.png" alt="">
             </div>
         </div>

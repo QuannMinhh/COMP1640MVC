@@ -38,7 +38,7 @@
     <div class="main--content">
         <?php include 'Layout/admin_navbar.php' ?>
         <div class="tabular--wrapper">
-            <h2>Edit student Account</h2>
+            <h2>Edit Coordinator Account</h2>
             <form action="index.php?action=update_coordinator&id=<?php echo $admin['Coor_ID']; ?>" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="username">Username</label>
@@ -65,7 +65,23 @@
                 </div>
                 <div class="form-group">
                     <label for="role_id">Faculty:</label>
-                    <input type="number" class="form-control" id="fa_id" name="fa_id" value="<?php echo $admin['Fa_ID']; ?>" required>
+                    <!-- <input type="number" class="form-control" id="fa_id" name="fa_id" value="<?php echo $admin['Fa_Name']; ?>" required> -->
+                    <select name="fa_id" class="form-control">
+                    <!-- <input type="number" class="form-control" id="fa_id" name="fa_id" value="<?php echo $admin['Fa_ID']; ?>" required>  -->
+                    <?php
+                        
+                         foreach($faculty as $fac)
+                         {
+                            if($fac['Fa_ID'] == $admin['Fa_ID'])
+                            {
+                                echo "  <option selected value='".$fac['Fa_ID']."'>".$fac['Fa_Name'] ."</option>";
+                            }
+                            else{ echo "  <option value='".$fac['Fa_ID']."'>".$fac['Fa_Name'] ."</option>";}
+                           
+                         }
+                           
+                        ?>
+                     </select>
                 </div>
                 <div class="form-group">
                     <label for="role_id">Image:</label>
