@@ -35,7 +35,7 @@
         include 'Layout/admin_sidebar.php'
     ?>
     <div class="main--content">
-        <?php include 'Layout/admin_navbar.php' ?>
+        <?php  $search = true; include 'Layout/admin_navbar.php' ?>
         <div class="tabular--wrapper">
             <h2>List of Manager</h2>
             <button style="margin-bottom: 10px" class="btn btn-primary">
