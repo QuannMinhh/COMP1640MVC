@@ -185,7 +185,7 @@
     
                 <div class="search--box">
                    
-                    <input name="username" type="text" placeholder="Search">
+                    <input name="username" type="text" placeholder="Search" value="<?php echo isset($_POST['username']) ? $_POST['username'] : ''; ?>" >
                     <button type = "submit" class="fa-solid fa-magnifying-glass"></button>    
                 </div>
                 </form>

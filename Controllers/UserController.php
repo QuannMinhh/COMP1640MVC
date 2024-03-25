@@ -1,14 +1,42 @@
 <?php 
 require_once 'Models/UserModel.php';
 
+require_once 'Models/AdminModel.php';
 class UserController{
+    public function register(){
+        $adminmodel = new AdminModel();
+       
+      
+        if(  isset($_SESSION['is_login'] ) && $_SESSION['is_login'] == false){
+            
+      
+         $faculty = $adminmodel->getAllFaculty();
+         
+         if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            $email = $_POST['email'];
+            $fullname = $_POST['fullname'];
+            $dob=$_POST['dob'];
+            $faculty=$_POST['fa_id'];
+            // $check = $validateRegister($username,$password,$email,$fullname, $dob, $faculty);
+            // if($check == true){
+                $adminmodel->addStudentAccount($username, $password, $email, $fullname, $dob, 2, $faculty, null);
+                header('location: index.php?action=login');
+            // }
+         }include 'views/register.php';
+         
+        }
+    
+    }
     public function login(){
         ob_start();
      
         $_SESSION['is_login'] = false;
+        include 'views/userlogin.php';
         if(  isset($_SESSION['is_login'] ) && $_SESSION['is_login'] == false){
            
-       header('location: views/userlogin.php');
+    
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $username = $_POST['username'];
             $password = $_POST['password'];
@@ -36,7 +64,7 @@ class UserController{
             header('Location: index.php?action=login');           
             exit();
         }
-    }
+    }  
    
 }else{
     header('Location: index.php');   

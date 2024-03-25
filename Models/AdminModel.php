@@ -152,10 +152,11 @@ class AdminModel
     }
     public function getStudentAccountByName($username)
     {
-        $query = 'SELECT student.* ,faculty.Fa_Name from student INNER Join Faculty ON Student.Fa_ID = Faculty.Fa_ID where student.Stu_Username= :username;';
+        $query = 'SELECT student.* ,faculty.Fa_Name from student INNER Join Faculty ON Student.Fa_ID = Faculty.Fa_ID where student.Stu_Username LIKE :username;';
         $sql = $this->conn->prepare($query);
-        $sql->execute(array(':username'=> $username));
-        return $sql->fetchAll(PDO::FETCH_ASSOC);
+        $sql->execute(array(':username' => '%' . $username . '%'));
+       return $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+      
     }
     public function getCoordinatorAccountByName($username)
     {

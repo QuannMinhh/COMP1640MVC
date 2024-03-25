@@ -85,6 +85,11 @@ switch ($action) {
             $UserController = new UserController();
             $UserController->login();     
         break;
+        case 'register':
+            require_once 'Controllers/UserController.php';
+            $UserController = new UserController();
+            $UserController->register();     
+            break;   
     case 'logout':
    
             require_once 'Controllers/UserController.php';

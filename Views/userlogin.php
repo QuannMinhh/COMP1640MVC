@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href='Layout/userlogin.css'>
+    <link rel="stylesheet" href='./views/Layout/userlogin.css'>
     <link rel="stylesheet" href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' >
     <title>Login Page</title>
 </head>
 
 <body>
     <div class="wrapper">
-        <form method="POST" action="../index.php?action=login" >
+        <form method="POST" >
             <h1>Login</h1>
             <div class="input-box">
                 <input type="text" placeholder="Username" id="txtusername" name="username" >
@@ -41,7 +41,7 @@
             <button type="submit" name="submit" value="submit" class="btn">Login</button>
             <div class="register-link">
                 <p>Student doesn't have account?
-                    <a href="#">Register</a>
+                    <a href="index.php?action=register">Register</a>
                 </p>
             </div>
         </form>

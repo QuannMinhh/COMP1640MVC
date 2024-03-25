@@ -8,6 +8,7 @@ class UserModel{
         global $conn;
         $this->conn = $conn;
     }
+   
     public function check_login($username, $password,$role_id){
         $role = $role_id;
         switch ($role) {

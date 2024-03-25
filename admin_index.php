@@ -187,7 +187,7 @@
         include 'views/Layout/admin_sidebar.php'
     ?>
     <div class="main--content">
-        <?php include 'views/Layout/admin_navbar.php' ?>
+        <?php  $search = true; include 'views/Layout/admin_navbar.php' ?>
         <div class="card--container">
             <h3 class="main--title">Today's data</h3>
             <div class="card--wrapper">
