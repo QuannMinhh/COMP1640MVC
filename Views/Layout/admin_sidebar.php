@@ -273,7 +273,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="index.php?action=admin">
                     <i class="fa-solid fa-user"></i>
                     <span>Profile</span>
                 </a>

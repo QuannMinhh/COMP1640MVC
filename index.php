@@ -14,6 +14,11 @@ switch ($action) {
             exit;
         }
       
+    case 'admin':
+        require_once 'Controllers/AdminController.php';
+        $adminController = new AdminController();
+        $adminController->indexAdmin();
+        break;      
    
     case 'insert_manager':
         require_once 'Controllers/AdminController.php';

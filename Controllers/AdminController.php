@@ -8,6 +8,24 @@ class AdminController {
         $usercontroller = new UserController();
         $this->is_login = $usercontroller->is_login();
     }
+
+    public function indexAdmin() {
+        // Hiển thị danh sách Manager
+         if($this->is_login == true && $_SESSION['role_id'] == 1) {
+         $adminModel = new adminModel();
+         $admin = $adminModel->getAllAdminAccount();
+         include 'views/admin_profile.php';
+      
+         } else if($this->is_login == true && $_SESSION['role_id'] != 1){
+            echo'access dinied';
+         }
+         else  {
+            header('Location: index.php?action=admin');           
+            exit();
+        }
+        
+    }
+
     public function indexManager() {
         // Hiển thị danh sách Manager
          if($this->is_login == true && $_SESSION['role_id'] == 1) {

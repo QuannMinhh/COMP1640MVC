@@ -18,6 +18,20 @@ class AdminModel
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getAllAdminAccount(){
+        $query = "SELECT * FROM admin";
+        $sql = $this->conn->query($query);
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getAdminAccountById($id)
+    {
+        $query = "SELECT * FROM admin WHERE Ad_ID = :id";
+        $sql = $this->conn->prepare($query);
+        $sql->execute(array(':id' => $id));
+        return $sql->fetch(PDO::FETCH_ASSOC);
+    }
+
 
     public function getAllManagerAccount()
     {
