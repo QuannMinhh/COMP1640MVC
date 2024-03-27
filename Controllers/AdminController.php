@@ -10,18 +10,14 @@ class AdminController {
     }
 
     public function indexAdmin() {
-        // Hiển thị danh sách Manager
+      
          if($this->is_login == true && $_SESSION['role_id'] == 1) {
          $adminModel = new adminModel();
          $admin = $adminModel->getAllAdminAccount();
          include 'views/admin_profile.php';
       
-         } else if($this->is_login == true && $_SESSION['role_id'] != 1){
+         } else {
             echo'access dinied';
-         }
-         else  {
-            header('Location: index.php?action=admin');           
-            exit();
         }
         
     }
@@ -40,13 +36,10 @@ class AdminController {
         $admin = $adminModel->getAllManagerAccount();
         }
          include 'views/admin_list_manager.php';     
-         } else if($this->is_login == true && $_SESSION['role_id'] != 1){
+         } 
+        else {
             echo'access dinied';
          }
-         else  {
-            header('Location: index.php?action=login');           
-            exit();
-        }
         
     }
     public function indexStudent() {
