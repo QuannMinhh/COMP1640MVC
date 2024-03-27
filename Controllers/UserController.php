@@ -54,6 +54,12 @@ class UserController{
                 case 2:
                     header('location:views/student_index.php'); 
                     exit() ;
+                case 3:
+                    header('location:views/manager_index.php'); 
+                    exit() ;
+                case 4:
+                    header('location:views/coordinator_index.php'); 
+                        exit() ;
                 default: break;
             }
                     

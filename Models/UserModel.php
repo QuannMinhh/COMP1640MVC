@@ -34,8 +34,34 @@ class UserModel{
                     else{
                        return false;
                     }    
-                default:
-                return false;
+              
+                case 3 :
+                    $query = "SELECT * from manager where Ma_Username = :username";
+                    $sql = $this->conn->prepare($query);
+                    $sql->execute(array(":username"=> $username));
+                    $result = $sql->fetch(PDO::FETCH_ASSOC);
+                    if($result['Ma_Password'] == $password){
+                       return true;                  
+                    }
+                    else{
+                       return false;
+                    }    
+
+                    case 4 :
+                        $query = "SELECT * from coordinator where Coor_Username = :username";
+                        $sql = $this->conn->prepare($query);
+                        $sql->execute(array(":username"=> $username));
+                        $result = $sql->fetch(PDO::FETCH_ASSOC);
+                        if($result['Coor_Password'] == $password){
+                           return true;                  
+                        }
+                        else{
+                           return false;
+                        } 
+               
+
+                    default:
+                    return false;
                 
         }
     }
