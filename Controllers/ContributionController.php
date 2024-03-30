@@ -33,7 +33,7 @@ class ContributionController {
             $imageData = null;
             if(isset($_FILES['Con_Image']) && $_FILES['Con_Image']['error'] === UPLOAD_ERR_OK) {
                 $imageTmpName = $_FILES['Con_Image']['tmp_name'];
-                $imageData = base64_encode(file_get_contents($imageTmpName));
+                $imageData = (file_get_contents($imageTmpName));
             }
     
             // Xử lý tệp tin Word
