@@ -29,13 +29,15 @@ class UserController{
         }
     
     }
+   
     public function login(){
         ob_start();
-     
+
         $_SESSION['is_login'] = false;
-        include 'views/userlogin.php';
+      
+        // include 'views/userlogin.php'
         if(  isset($_SESSION['is_login'] ) && $_SESSION['is_login'] == false){
-           
+            
     
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $username = $_POST['username'];
@@ -49,7 +51,7 @@ class UserController{
             switch( $_SESSION['role_id'])
             {
                 case 1:
-                    header('location:index.php');
+                    header('location:admin_index.php');
                     exit() ;
                 case 2:
                     header('location:views/student_index.php'); 
@@ -58,7 +60,7 @@ class UserController{
                     header('location:views/manager_index.php'); 
                     exit() ;
                 case 4:
-                    header('location:views/coordinator_index.php'); 
+                    header('location:index.php?action=contribution'); 
                         exit() ;
                 default: break;
             }
@@ -66,16 +68,17 @@ class UserController{
         }
         else{
             $_SESSION['is_login'] = false;
-            
-            header('Location: index.php?action=login');           
-            exit();
+            $err='sai ten';
+           // include 'views/userlogin.php';
+           //header('Location: index.php?action=login');           
+        //   exit();
         }
     }  
    
 }else{
     header('Location: index.php');   
-}
-
+}include 'views/userlogin.php';
+     
 ob_end_flush();
     }
     public function display_role(){
@@ -97,6 +100,11 @@ ob_end_flush();
         header("Location:index.php?action=login"); 
         exit();
     }
-}
+    //////////////////////////////////////////////////////////////////
 
+
+    
+    }
+
+/////////////////
 ?>

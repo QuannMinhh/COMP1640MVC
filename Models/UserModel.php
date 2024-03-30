@@ -53,7 +53,9 @@ class UserModel{
                         $sql->execute(array(":username"=> $username));
                         $result = $sql->fetch(PDO::FETCH_ASSOC);
                         if($result['Coor_Password'] == $password){
-                           return true;                  
+                           $_SESSION['userid'] =  $result['Coor_ID'] ;
+                           return true;  
+                                       
                         }
                         else{
                            return false;
@@ -71,6 +73,7 @@ class UserModel{
         $sql->execute();
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
+
 
 }
 ?>

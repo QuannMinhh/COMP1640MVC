@@ -10,7 +10,7 @@ switch ($action) {
             exit;
         }
         else{
-            header("Location:index.php?action=login ");
+            header("Location:./views/university_index.php ");
             exit;
         }
       
@@ -104,6 +104,73 @@ switch ($action) {
             $UserController->logout();
        
             break;
+    case 'upload':
+        require_once 'Controllers/StudentController.php';
+        
+        $StudentController = new StudentController();
+       
+        $StudentController->addContribution();
+        break;
+
+        /////////////////////////////////////
+        case 'contribution':
+            require_once 'Controllers/ContributionController.php';
+            $contributionController = new ContributionController();
+            $contributionController->index();
+            break;      
+       
+        case 'add_contribution':
+            require_once 'Controllers/ContributionController.php';
+            $contributionController = new ContributionController();
+            $contributionController->add();
+            break;
+       
+        case 'cmt_contribution':
+            require_once 'Controllers/ContributionController.php';
+            $contributionController = new ContributionController();
+            $contributionController->edit($_GET['id']);
+            break;
+            
+        case 'delete_contribution':
+            require_once 'Controllers/ContributionController.php';
+            $contributionController = new ContributionController();
+            $contributionController->delete($_GET['id']);
+            break;
+            
+        case 'index_topic':
+            require_once 'Controllers/TopicController.php';
+            $topicController = new TopicController();
+            $topicController->index();
+            break;  
+        
+        case 'add_topic':
+            require_once 'Controllers/TopicController.php';
+            $topicController = new TopicController();
+            $topicController->add();
+            break;
+            
+        case 'edit_topic':
+            require_once 'Controllers/TopicController.php';
+            $topicController = new TopicController();
+            $topicController->edit($_GET['id']);
+            break;  
+            
+        case 'delete_topic':
+            require_once 'Controllers/TopicController.php';
+            $topicController = new TopicController();
+            $topicController->delete($_GET['id']);
+            break;
+        case 'add_comment':
+            require_once 'Controllers/CoordinatorController.php';
+            $coor = new CoordinatorController();
+            $coor-> add_comment($_GET['id']);
+            break;
+        case 'download_zip':
+                require_once 'Controllers/CoordinatorController.php';
+                $coor = new CoordinatorController();
+                $coor-> download();
+                break;
+            //////////////////
     default:
         echo 'Error: Unknown action';
         break;

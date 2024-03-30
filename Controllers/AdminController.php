@@ -11,7 +11,7 @@ class AdminController {
 
     public function indexAdmin() {
       
-         if($this->is_login == true && $_SESSION['role_id'] == 1) {
+         if(isset($_SESSION['is_login']) && $this->is_login == true && $_SESSION['role_id'] == 1) {
          $adminModel = new adminModel();
          $admin = $adminModel->getAllAdminAccount();
          include 'views/admin_profile.php';
@@ -94,6 +94,7 @@ class AdminController {
     }
 
     public function insert_manager() {
+        
         ob_start();
         if($this->is_login == true && $_SESSION['role_id'] == 1) {
             include 'views/admin_add_manager.php'; 
@@ -149,8 +150,7 @@ class AdminController {
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     if(isset($_FILES["new_avatar"]) && !empty($_FILES["new_avatar"]["tmp_name"]))
                 { 
-                    $file = $_FILES["new_avatar"];
-                    $imageData = file_get_contents($file["tmp_name"]);          
+                    $imageData = file_get_contents($_FILES["new_avatar"]["tmp_name"]);          
                 }
                 else{
                     $image = $_POST["avatar"];
@@ -363,5 +363,7 @@ class AdminController {
         header('Location: index.php');
         exit();
     }
+
+
 }
 ?>

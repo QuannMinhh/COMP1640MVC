@@ -11,12 +11,12 @@
 
 <body>
     <div class="wrapper">
-        <form method="POST" >
+        <form method="POST"  >
             <h1>Login</h1>
             <div class="input-box">
                 <input type="text" placeholder="Username" id="txtusername" name="username" >
                 <i class='bx bxs-user'></i>
-              
+             
             </div>
 
             <div class="input-box">
