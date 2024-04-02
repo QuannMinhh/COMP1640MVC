@@ -47,13 +47,11 @@ public function download() {
     
     
     $zip->close();
-    // chỉ định kiểu nội dung của phản hồi HTTP là một tệp ZIP
+    
     header("Content-type: application/zip");
-    // chỉ định tên file khi người dùng tải xuống tệp ZIP
+   
     header("Content-Disposition: attachment; filename=$zipName");
     //
-    header("Pragma: no-cache");
-    header("Expires: 0");
     readfile($zipName);
     // 
     unlink($zipName);

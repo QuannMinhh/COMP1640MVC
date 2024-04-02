@@ -170,6 +170,11 @@ switch ($action) {
                 $coor = new CoordinatorController();
                 $coor-> download();
                 break;
+        case 'student_index':
+                require_once 'Controllers/StudentController.php';
+                $stu = new StudentController();
+                $stu-> indexStudent();
+                break;
             //////////////////
     default:
         echo 'Error: Unknown action';

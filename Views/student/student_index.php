@@ -7,5 +7,10 @@
 </head>
 <body>
     <h1>STUDENT INDEX</h1>
+    <?php 
+    // echo $_SESSION['user_name'];
+    echo $studentInfo['Fa_ID'];
+    
+    ?>
 </body>
 </html>

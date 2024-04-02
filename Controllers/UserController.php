@@ -3,6 +3,7 @@ require_once 'Models/UserModel.php';
 
 require_once 'Models/AdminModel.php';
 class UserController{
+    
     public function register(){
         $adminmodel = new AdminModel();
        
@@ -48,14 +49,18 @@ class UserController{
         if($user){
             $_SESSION['is_login'] = true;
             $_SESSION['role_id'] = $role_id;
+            $_SESSION['user_name'] = $_POST['username'];
             switch( $_SESSION['role_id'])
             {
                 case 1:
                     header('location:admin_index.php');
                     exit() ;
                 case 2:
-                    header('location:views/student_index.php'); 
+                    header('location:index.php?action=student_index'); 
+               
+                   
                     exit() ;
+                    
                 case 3:
                     header('location:views/manager_index.php'); 
                     exit() ;

@@ -14,4 +14,12 @@ class StudentModel
         $query = "";
 
     }
+
+    public function getStudentbyUserName($username)
+    {
+        $query = "SELECT * from student where Stu_Username = :username;";
+        $sql = $this->conn->prepare($query);
+        $sql->execute(array(':username'=> $username));
+        return $sql->fetch(PDO::FETCH_ASSOC);
+    }
 }
