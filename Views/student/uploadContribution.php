@@ -41,12 +41,8 @@
     </div>
     <div class="form-group">
         <label for="Con_Doc">Document</label>
-        <input type="file" class="form-control" id="Con_Doc" name="Con_Doc[]" required accept=".doc,.docx" multiple>
+        <input type="file" class="form-control" id="Con_Doc" name="Con_Doc" required accept=".doc,.docx">
     </div>
-    <div class="form-group">
-    <label for="Con_Image">Image</label>
-    <input type="file" class="form-control" id="Con_Image" name="Con_Image[]" required accept="image/*" multiple>
-</div>
     <div class="form-group">
         <label for="Topic_ID">Topic ID</label>
         <input type="number" class="form-control" id="Topic_ID" name="Topic_ID" required>

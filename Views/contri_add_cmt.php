@@ -68,8 +68,7 @@
     </div>
     <div class="form-group">
     <label for="Stu_ID">Content:</label>
-    <iframe src="https://docs.google.com/gview?url=<?php echo urlencode($contribution['Con_Doc']); ?>&embedded=true" style="width:600px; height:500px;" frameborder="0"></iframe>
-
+    <input type="text" name="Stu_ID" id="Stu_ID" value="<?php echo $contribution['con_doc']; ?>" readonly>
     </div>
     <div class="form-group">
     <label for="Com_ID">comment:</label>
