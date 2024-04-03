@@ -16,8 +16,15 @@ class StudentController{
     }
 
     public function addContribution() {
-        if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES["Con_Doc"])) {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES["Con_Doc"])) {
             // Lấy thông tin từ form
+            if(isset($_FILES["Con_Image"])) { 
+                foreach($_FILES["Con_Image"]["tmp_name"] as $key => $tmp_name) {
+                    $imageDataArray[$key] = file_get_contents($_FILES["Con_Image"]["tmp_name"][$key]);
+                }
+            } else {
+                $imageDataArray = [];
+            }
             $contributionName = $_POST['Con_Name'];
             $submissionDate = $_POST['Con_SubmissionTime'];
             $status = $_POST['Con_Status'];
@@ -25,28 +32,33 @@ class StudentController{
             $topicID = $_POST['Topic_ID'];
             $magazineID = $_POST['Maga_ID'];
             
-            // Xử lý tệp tin
-            $filedoc = $_FILES['Con_Doc'];
-            $filename = $_FILES['Con_Doc']['name'];
-            $temp = $_FILES['Con_Doc']['tmp_name'];
-            $uploadPath = "Upload/" . $filename;
+            // Xử lý từng tệp tải lên
+            $fileCount = count($_FILES['Con_Doc']['name']);
+            for ($i = 0; $i < $fileCount; $i++) {
+                $filedoc = $_FILES['Con_Doc']['tmp_name'][$i];
+                $filename = $_FILES['Con_Doc']['name'][$i];
+                $uploadPath = "Upload/" . $filename;
     
-            // Di chuyển tệp lên máy chủ
-            if (move_uploaded_file($temp, $uploadPath)) {
-                // Thêm dữ liệu vào cơ sở dữ liệu bằng cách sử dụng phương thức trong model
-                $studentModel = new StudentModel();
-                $studentModel->addContribution($contributionName, $submissionDate, $status, $studentID, $uploadPath, null, $topicID, null, $magazineID);
-                
-                // Gửi email thông báo đến người phụ trách nếu cần
-                $this->mailNotiToCoordinator();
+                // Di chuyển tệp lên máy chủ
+                if (move_uploaded_file($filedoc, $uploadPath)) {
+                    // Thêm dữ liệu vào cơ sở dữ liệu bằng cách sử dụng phương thức trong model
+                    $studentModel = new StudentModel();
+                    $studentModel->addContribution($contributionName, $submissionDate, $status, $studentID, $uploadPath, $imageDataArray, $topicID, null, $magazineID);
+                    
+                    // Gửi email thông báo đến người phụ trách nếu cần
+                    $this->mailNotiToCoordinator();
     
-                echo "File uploaded successfully.";
-            } else {
-                echo "Error uploading file.";
+                    echo "File uploaded successfully.";
+                } else {
+                    echo "Error uploading file.";
+                }
             }
         }  
         include "views/student/uploadContribution.php";
     }
+    
+    
+    
 
 
 public function mailNotiToCoordinator(){
