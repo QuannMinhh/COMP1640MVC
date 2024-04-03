@@ -22,28 +22,39 @@
      
        <div class="tabular--wrapper">
            <h2>Add contribution</h2>
-           <form  method="POST" enctype="multipart/form-data">
-               <div class="form-group">
-                   <label for="con_name">Contribution Name</label>
-                   <input type="text" class="form-control" id="con_name" name="con_name" required>
-               </div>
-               <div class="form-group">
-                   <label for="password">Doc file</label>
-                   <input type="file"  id="password" name="Document" accept=".doc,.docx" required>
-               </div>
-               <div class="form-group">
-               <label for="avatar">Image:</label>
-           <input type="file" id="image" name="image" accept="image/*" >
-               </div>
-               <div class="form-group">
-                   <label for="email">Topic ID</label>
-                   <input type="number" class="form-control" id="fullname" name="topic_id" value="1" required>
-               </div>
-            
-              
-               <button type="submit" class="btn btn-success">Add Contribution</button>
-           </form>
-       </div>
+           <form method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="Con_Name">Contribution Name</label>
+        <input type="text" class="form-control" id="Con_Name" name="Con_Name" required>
+    </div>
+    <div class="form-group">
+        <label for="Con_SubmissionTime">Submission Time</label>
+        <input type="date" class="form-control" id="Con_SubmissionTime" name="Con_SubmissionTime" required>
+    </div>
+    <div class="form-group">
+        <label for="Con_Status">Status</label>
+        <input type="text" class="form-control" id="Con_Status" name="Con_Status" required>
+    </div>
+    <div class="form-group">
+        <label for="Stu_ID">Student ID</label>
+        <input type="number" class="form-control" id="Stu_ID" name="Stu_ID" required>
+    </div>
+    <div class="form-group">
+        <label for="Con_Doc">Document</label>
+        <input type="file" class="form-control" id="Con_Doc" name="Con_Doc" required accept=".doc,.docx">
+    </div>
+    <div class="form-group">
+        <label for="Topic_ID">Topic ID</label>
+        <input type="number" class="form-control" id="Topic_ID" name="Topic_ID" required>
+    </div>
+    <div class="form-group">
+        <label for="Maga_ID">Magazine ID</label>
+        <input type="number" class="form-control" id="Maga_ID" name="Maga_ID">
+    </div>
+    <button type="submit" class="btn btn-success">Add Contribution</button>
+</form>
+
+
    </div>
 </body>
 </html>
